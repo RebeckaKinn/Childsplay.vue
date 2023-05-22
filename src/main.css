@@ -1,23 +1,9 @@
-div.container{
-    max-width: 400px;
-    margin: 0 auto;
-    display: grid; 
-    justify-items: center;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: 60px repeat(3, 200px) 60px;
-    grid-template-areas: 
-        'header header header header'
-        'body body body body'
-        'body body body body'
-        'body body body body'
-        'footer footer footer footer';
-}
-.footerMenu{
-    grid-area: footer;
-    background-color: brown;
-    /* display: flex;
-    justify-content: space-evenly;
-   
-    bottom: 0; */
-
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px 5px;
 }

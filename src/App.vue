@@ -2,6 +2,7 @@
 import MainPage from './components/MainPage.vue'
 import FooterMenu from './components/menuItems/Footer-menu.vue'
 import './main.css'
+
 </script>
 
 <template>
