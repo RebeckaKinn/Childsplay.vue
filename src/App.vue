@@ -2,6 +2,7 @@
 import MainPage from './components/MainPage.vue'
 import FooterMenu from './components/menuItems/Footer-menu.vue'
 import BackButton from './components/BackButton.vue'
+import BottomMessage from './components/AllRightsReserved.vue'
 import './main.css'
 
 </script>
@@ -14,9 +15,9 @@ import './main.css'
   <main>
 
     <MainPage />
-
   </main>
 
+    <BottomMessage/>
   <footer>
     <FooterMenu/>
   </footer>
