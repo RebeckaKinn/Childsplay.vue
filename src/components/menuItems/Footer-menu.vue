@@ -1,5 +1,5 @@
 <script setup>
-import SupportIcon from '../icons/IconSupport.vue'
+
 </script>
 
 <template>
@@ -11,8 +11,6 @@ import SupportIcon from '../icons/IconSupport.vue'
         </ul>
     </nav>
 </template>
-
-
 
 <style scoped>
 .footerMenu{

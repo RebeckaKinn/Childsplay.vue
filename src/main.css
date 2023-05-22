@@ -1,9 +1,11 @@
 .container{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-flow: column wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 5px 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
