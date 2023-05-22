@@ -3,10 +3,18 @@ import SupportIcon from '../icons/IconSupport.vue'
 </script>
 
 <template>
-    <h2>
+    <div>
+        <h3>
         Dinnerplan chooser
-    </h2>
+        </h3>
         <SupportIcon/>
+    </div>
+    <div>
+        <h3>
+        Activity chooser
+        </h3>
+        <SupportIcon/>
+    </div>
 </template>
 
 

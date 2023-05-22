@@ -1,5 +1,7 @@
 <script setup>
 import MainPage from './components/MainPage.vue'
+import FooterMenu from './components/menuItems/Footer-menu.vue'
+import './main.css'
 </script>
 
 <template>
@@ -7,11 +9,16 @@ import MainPage from './components/MainPage.vue'
   </header>
 
   <main>
-<button v-on:click="something()">Button</button>
+
     <MainPage />
-    <p>Something</p>
+
   </main>
+
+  <footer>
+    <FooterMenu/>
+  </footer>
 </template>
+
 
 <style scoped>
 
