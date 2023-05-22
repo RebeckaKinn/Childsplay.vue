@@ -7,7 +7,7 @@
         <ul>
         <button>Home</button>
         <button>To-Do list</button>
-        <button>Profile</button>
+        <button>Settings</button>
         </ul>
     </nav>
 </template>
