@@ -15,12 +15,12 @@
     color: #333;
     font-size: 20px;
     padding: 8;
-    border: none;
     border-radius: 4px;
     background-color: #f0f0f0;
     font-family: Century Gothic;
     font-weight: bold;
     cursor: pointer;
+    border: 1px solid #45d0e2;
 }
 .back-button:hover{
     color: #45d0e2;

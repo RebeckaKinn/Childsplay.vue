@@ -20,9 +20,9 @@ export default {
     <main>
       <div class="setting-menu">
         <a class="setting-button">Add dinner item</a>
-        <a class="setting-button">Edit food items</a>
+        <a class="setting-button">Edit food items</a><br/>
         <a class="setting-button">Add activity</a>
-        <a class="setting-button">Edit activities</a>
+        <a class="setting-button">Edit activities</a><br/>
         <a class="setting-button">Delete to-do list</a>
       </div>
     </main>
@@ -49,21 +49,20 @@ header {
 
 p {
   font-size: 30px;
-font-family: Consolas;
+  font-family: Consolas;
 }
 
 main {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 40px;
 }
 
 .setting-menu {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px;
 }
 
 a.setting-button {
@@ -75,5 +74,9 @@ a.setting-button {
   color: #333;
   font-weight: bold;
   text-align: center;
+  border: 1px solid #45d0e2;
+}
+a.setting-button:hover{
+    color: #45d0e2;
 }
 </style>
