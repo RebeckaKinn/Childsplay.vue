@@ -14,6 +14,13 @@
 div{
     display: flex;
     align-content: flex-start;
-    align-items: flex-start;
+    align-items: baseline;
+    font-family: Consolas;
+}
+.title{
+    font-size: 30px;
+}
+.under-title{
+    font-size: 20px;
 }
 </style>

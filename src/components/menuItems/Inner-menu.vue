@@ -1,6 +1,5 @@
 <script setup>
-import SupportIcon from '../icons/IconSupport.vue'
-import TestImg from '../img/mustache_cat.jpg'
+import TestImg from '/src/img/mustache_cat.jpg'
 </script>
 
 <template>
@@ -30,7 +29,7 @@ import TestImg from '../img/mustache_cat.jpg'
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 40px;
   border-radius: 10px;
 }
 
