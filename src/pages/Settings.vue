@@ -14,7 +14,7 @@ export default {
   <div class="settings-page">
     <header>
       <BackButton />
-      <p>Settings</p>
+      <div class="header">Settings</div>
     </header>
 
     <main>
@@ -47,9 +47,8 @@ header {
   padding: 16px;
 }
 
-p {
+div.header {
   font-size: 30px;
-  font-family: Consolas;
 }
 
 main {

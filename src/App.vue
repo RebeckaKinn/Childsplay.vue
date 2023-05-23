@@ -6,7 +6,7 @@ import './main.css'
 </script>
 
 <template>
-    <Settings />
+    <MainPage />
 </template>
 
 <style scoped>
