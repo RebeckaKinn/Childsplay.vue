@@ -4,12 +4,7 @@ export default {
 </script>
 
 <template>
- <div>
-    <router-view />
-  </div>
-
+    <div>
+        <router-view />
+    </div>
 </template>
-
-<style scoped>
-
-</style>>

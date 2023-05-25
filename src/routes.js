@@ -14,7 +14,6 @@ const routes = [
   {path: '/dinnerchooser', name: 'Dinner Chooser', component: DinnerChooser},
 ]
 
-
 const router = createRouter({
   history: createWebHistory(),
   routes

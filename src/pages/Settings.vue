@@ -41,16 +41,6 @@ export default {
   height: 100vh;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-}
-
-div.header {
-  font-size: 30px;
-}
-
 main {
   display: flex;
   align-items: center;

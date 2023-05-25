@@ -1,13 +1,21 @@
-<script setup>
-
-</script>
-
 
 <template>
-    <router-link to="">
-        <button class="back-button">back</button>
-    </router-link>
+    <span>
+        <router-link to="">
+            <button class="back-button" v-on:click="Back">back</button>
+        </router-link>
+    </span>
 </template>
+
+<script>
+    export default {
+        methods: {
+            Back(){
+                return this.$router.go(-1)
+            }
+        }
+    }
+</script>
 
 <style scoped>
 .back-button{

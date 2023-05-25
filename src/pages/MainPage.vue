@@ -14,9 +14,9 @@ import Header from '../components/Info/Header-frontPage.vue'
   <main>
     <InnerMenu/>
   </main>
+
       <BottomMessage/>
       
-
   <footer>
     <FooterMenu/>
   </footer>

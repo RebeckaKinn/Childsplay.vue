@@ -14,6 +14,15 @@
     display: flex;
     align-content: flex-start;
     align-items: baseline;
+    align-items: center;
     font-family: Consolas;
     border-bottom: 1px solid #45d0e2;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.menu-image{
+    height: 250px; 
+    width: auto; 
+    border-radius: 80px;
 }

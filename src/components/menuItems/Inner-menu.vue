@@ -32,11 +32,7 @@ import TestImg from '/src/img/mustache_cat.jpg'
 
 
 <style scoped>
-.menu-image{
-    height: 250px; 
-    width: auto; 
-    border-radius: 80px;
-}
+
 .main-menu {
   display: flex;
   flex-direction: column;
