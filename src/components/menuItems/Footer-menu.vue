@@ -10,7 +10,7 @@
             <button>Home</button>
         </router-link>
         
-        <router-link to="">
+        <router-link to="/to-do-list">
             <button>To-Do list</button>
         </router-link>
 

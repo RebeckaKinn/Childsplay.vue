@@ -5,14 +5,27 @@ import TestImg from '/src/img/mustache_cat.jpg'
 
 <template>
   <nav class="main-menu">
+
     <div class="menu-item">
       <ul>Dinnerplan</ul>
-      <div><img :src="TestImg" alt="testImage" class="menu-image"></div>
+
+      <div>
+        <router-link to="/dinnerchooser">
+          <img :src="TestImg" alt="testImage" class="menu-image">
+        </router-link>  
+      </div>
+          
     </div>
     <div class="menu-item">
       <ul>Activity</ul>
-      <div><img :src="TestImg" alt="testImage" class="menu-image"></div>
+      <div>
+        <router-link to="/activitychooser">
+          <img :src="TestImg" alt="testImage" class="menu-image">
+        </router-link>
+      </div>
+
     </div>
+    
   </nav>
 </template>
 

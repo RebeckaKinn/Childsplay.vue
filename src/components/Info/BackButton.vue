@@ -4,7 +4,9 @@
 
 
 <template>
+    <router-link to="">
         <button class="back-button">back</button>
+    </router-link>
 </template>
 
 <style scoped>

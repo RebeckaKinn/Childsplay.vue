@@ -19,11 +19,11 @@ export default {
 
     <main>
       <div class="setting-menu">
-        <a class="setting-button">Add dinner item</a>
-        <a class="setting-button">Edit food items</a><br/>
-        <a class="setting-button">Add activity</a>
-        <a class="setting-button">Edit activities</a><br/>
-        <a class="setting-button">Delete to-do list</a>
+        <router-link to="" class="setting-button">Add dinner item</router-link>
+        <router-link to="" class="setting-button">Edit food items</router-link><br/>
+        <router-link to="" class="setting-button">Add activity</router-link>
+        <router-link to="" class="setting-button">Edit activities</router-link><br/>
+        <router-link to="" class="setting-button">Delete to-do list</router-link>
       </div>
     </main>
 
@@ -64,7 +64,7 @@ main {
   gap: 16px;
 }
 
-a.setting-button {
+.setting-button {
   display: block;
   padding: 16px;
   background-color: #f0f0f0;
@@ -75,7 +75,7 @@ a.setting-button {
   text-align: center;
   border: 1px solid #45d0e2;
 }
-a.setting-button:hover{
+.setting-button:hover{
     color: #45d0e2;
 }
 </style>
