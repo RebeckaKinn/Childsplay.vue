@@ -1,5 +1,6 @@
 <script setup>
 import TestImg from '/src/img/mustache_cat.jpg'
+//PROBLEM WARNING WEE WOO WEE WOO
 </script>
 
 <template>

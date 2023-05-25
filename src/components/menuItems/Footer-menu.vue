@@ -5,9 +5,19 @@
 <template>
     <nav class="footerMenu">
         <ul>
-        <button>Home</button>
-        <button>To-Do list</button>
-        <button>Settings</button>
+
+        <router-link to="/">
+            <button>Home</button>
+        </router-link>
+        
+        <router-link to="">
+            <button>To-Do list</button>
+        </router-link>
+
+        <router-link to="/settings">
+            <button>Settings</button>
+        </router-link>
+
         </ul>
     </nav>
 </template>

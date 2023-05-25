@@ -1,6 +1,6 @@
 <script>
 import FooterMenu from '../components/menuItems/Footer-menu.vue'
-import BackButton from '/src/components/Info/BackButton.vue'
+import BackButton from '../components/Info/BackButton.vue'
 
 export default {
   components: {
