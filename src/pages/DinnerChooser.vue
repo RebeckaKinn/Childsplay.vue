@@ -5,9 +5,9 @@ import './Chooser.css';
 </script>
 
 <template>
-    <div class="chooser-mainpage">
+    <div class="container">
         <header>
-            <div class="default-header">Dinner of the day is...</div>
+            <div class="default-header chooser-title">Dinner of the day is...</div>
         </header>
 
         <main class="chooser-main">

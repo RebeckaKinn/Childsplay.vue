@@ -4,6 +4,7 @@ import BackButton from '../components/Info/BackButton.vue'
 </script>
 
 <template>
+<div class="container">
     <header>
         <BackButton/>
         <div class="default-header">
@@ -11,13 +12,15 @@ import BackButton from '../components/Info/BackButton.vue'
         </div>
     </header>
 
-    <main>
+    <main class="todo-main">
         <table class="todo-grid">
-            <div class="info">description</div>
-            <input type="checkbox" class="checkbox"/>
+            <tr>
+                <td class="info">description</td>
+                <td><input type="checkbox" class="checkbox"/></td>
+            </tr>
         </table>
     </main>
-
+</div>
     <footer>
         <FooterMenu/>
     </footer>
@@ -25,21 +28,28 @@ import BackButton from '../components/Info/BackButton.vue'
 
 
 <style scoped>
+.todo-main{
+    margin-top: 20px;
+}
 .todo-grid{
     display: grid;
-    grid-template-columns: 350px auto;
+    grid-template-columns: 355px auto;
     border: 1px solid #c5c5c5;;
+    padding: 5px;
     grid-template-rows: auto;
     grid-template-areas:
         'info checkbox';
 }
 .todo-grid .info{
     grid-area: info;
-    border: 1px solid #3c009c;;
+    font-size: 20px;
+    border: 1px solid #ff0000;;
 }
 .todo-grid .checkbox{
     grid-area: checkbox;
-    
-    border: 1px solid #00c220;;
+    height: 30px;
+    width: 30px;
 }
 </style>
+
+/*.checkbox havner ikke i grid aeria som valgt. WHY */

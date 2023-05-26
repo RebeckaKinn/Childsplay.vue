@@ -1,16 +1,12 @@
 .container{
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    flex-flow: column wrap;
-    justify-content: center;
     align-items: center;
-    gap: 5px;
-    margin-top: 10px;
-    font-family: Arial;
+    height: 100vh;
 }
 
 .default-header{
+    text-align: center;
     display: flex;
     align-content: flex-start;
     align-items: baseline;

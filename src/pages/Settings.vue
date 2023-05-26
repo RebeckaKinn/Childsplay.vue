@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="settings-page">
+  <div class="container">
     <header>
       <BackButton />
       <div class="default-header">Settings</div>
@@ -35,11 +35,6 @@ export default {
 
 
 <style scoped>
-.settings-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
 
 main {
   display: flex;

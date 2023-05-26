@@ -1,7 +1,7 @@
 
 <template>
     <div>
-            <p>Version no: 01.001</p>
+            <p>Version no: 01.003</p>
             <p>© 2023 KinnProductions. All rights reserved.</p>
     </div>
 </template>

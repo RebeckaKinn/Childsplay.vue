@@ -5,9 +5,9 @@ import './Chooser.css';
 </script>
 
 <template>
-    <div class="chooser-mainpage">
+    <div class="container">
         <header>
-            <div class="default-header">Activity of the day is...</div>
+            <div class="default-header chooser-title">Activity of the day is...</div>
         </header>
 
         <main class="chooser-main">
@@ -22,7 +22,7 @@ import './Chooser.css';
 
     <footer>
             <div class="chooser-button-links">
-                <router-link to="/dinnerchooser" class="button first-button">Give me another</router-link>
+                <router-link to="/activitychooser" class="button first-button">Give me another</router-link>
                 <router-link to="/" class="button second-button">OK!</router-link>
             </div>
     </footer>

@@ -21,11 +21,11 @@
 .back-button{
     position: fixed;
     top: 10px;
-    left: 10px;
+    right: 10px;
     color: #333;
     font-size: 20px;
-    padding: 8;
-    border-radius: 4px;
+    padding: 10px;
+    border-radius: 10px;
     background-color: #f0f0f0;
     font-family: Century Gothic;
     font-weight: bold;
