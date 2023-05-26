@@ -14,7 +14,7 @@ export default {
   <div class="settings-page">
     <header>
       <BackButton />
-      <div class="header">Settings</div>
+      <div class="default-header">Settings</div>
     </header>
 
     <main>

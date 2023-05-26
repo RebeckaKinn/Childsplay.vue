@@ -4,7 +4,7 @@
 
 
 <template>
-    <div class="header">
+    <div class="default-header">
         <p class="title">Childsplay</p>
         <p class="under-title">- make life easy</p>
     </div>

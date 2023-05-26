@@ -10,7 +10,7 @@
     font-family: Arial;
 }
 
-.header{
+.default-header{
     display: flex;
     align-content: flex-start;
     align-items: baseline;

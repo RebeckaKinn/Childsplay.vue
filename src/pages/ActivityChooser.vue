@@ -1,23 +1,30 @@
 <script setup>
-import FooterMenu from '../components/menuItems/Footer-menu.vue'
-import BackButton from '../components/Info/BackButton.vue'
+import TestImg from '/src/img/mustache_cat.jpg'
+//PROBLEM WARNING WEE WOO WEE WOO
+import './Chooser.css';
 </script>
 
 <template>
-    <header>
-        <BackButton/>
-    </header>
+    <div class="chooser-mainpage">
+        <header>
+            <div class="default-header">Activity of the day is...</div>
+        </header>
 
-    <main>
+        <main class="chooser-main">
+            <p class="chooser-title">Running.</p>
+            <p class="chooser-description">Cause I hate life.</p>
+            <div>
+                <img :src="TestImg" alt="testImage" class="menu-image">
+            </div>
         
-    </main>
+        </main>
+    </div>
 
     <footer>
-        <FooterMenu/>
+            <div class="chooser-button-links">
+                <router-link to="/dinnerchooser" class="button first-button">Give me another</router-link>
+                <router-link to="/" class="button second-button">OK!</router-link>
+            </div>
     </footer>
 </template>
-
-
-<style scoped>
-
-</style>
+/* later plans: use one chooser page for both usages, only change data shown */
