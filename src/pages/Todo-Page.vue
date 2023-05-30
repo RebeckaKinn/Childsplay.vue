@@ -13,12 +13,10 @@ import BackButton from '../components/Info/BackButton.vue'
     </header>
 
     <main class="todo-main">
-        <table class="todo-grid">
-            <tr>
-                <td class="info">description</td>
-                <td><input type="checkbox" class="checkbox"/></td>
-            </tr>
-        </table>
+        <section class="todo-grid">
+                <div class="info">description: task from DB</div>
+                <div><input type="checkbox" class="info-checkbox"/></div>
+        </section>
     </main>
 </div>
     <footer>
@@ -33,9 +31,10 @@ import BackButton from '../components/Info/BackButton.vue'
 }
 .todo-grid{
     display: grid;
-    grid-template-columns: 355px auto;
-    border: 1px solid #c5c5c5;;
-    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    grid-template-columns: 320px auto;
     grid-template-rows: auto;
     grid-template-areas:
         'info checkbox';
@@ -43,10 +42,13 @@ import BackButton from '../components/Info/BackButton.vue'
 .todo-grid .info{
     grid-area: info;
     font-size: 20px;
-    border: 1px solid #ff0000;;
+    border-bottom: 1px solid #45d0e2;
+    padding-left: 5px;
+    padding-top: 4px;
 }
-.todo-grid .checkbox{
+.todo-grid .info-checkbox{
     grid-area: checkbox;
+    justify-self: center;
     height: 30px;
     width: 30px;
 }
