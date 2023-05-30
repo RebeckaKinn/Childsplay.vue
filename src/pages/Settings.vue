@@ -1,11 +1,29 @@
 <script>
-import FooterMenu from '../components/menuItems/Footer-menu.vue'
-import BackButton from '../components/Info/BackButton.vue'
+import FooterMenu from '../components/menuItems/Footer-menu.vue';
+import BackButton from '../components/Info/BackButton.vue';
+import PopUpWarning from '../components/pop-ups/delete-todo-warning.vue';
+import { ref } from 'vue';
 
 export default {
+  setup (){
+    const triggers = ref({
+      deleteWarning: false
+    })
+
+    const TogglePopUp = (activate) => {
+      triggers.value[activate] = !triggers.value[activate]
+    }
+
+    return {
+      PopUpWarning,
+      triggers,
+      TogglePopUp
+    }
+  },
   components: {
     FooterMenu,
-    BackButton
+    BackButton,
+    PopUpWarning
   }
 }
 </script>
@@ -23,8 +41,18 @@ export default {
         <router-link to="" class="setting-button">Edit food items</router-link><br/>
         <router-link to="" class="setting-button">Add activity</router-link>
         <router-link to="" class="setting-button">Edit activities</router-link><br/>
-        <router-link to="" class="setting-button">Delete to-do list</router-link>
+        
+        <button 
+          class="setting-button" 
+          @click="() => TogglePopUp('deleteWarning')">
+          Delete to-do list
+          </button>
       </div>
+      <span>
+        <PopUpWarning 
+          v-if="triggers.deleteWarning"
+          :TogglePopUp="() => TogglePopUp('deleteWarning')"
+          /></span>
     </main>
 
     <footer>
@@ -35,7 +63,6 @@ export default {
 
 
 <style scoped>
-
 main {
   display: flex;
   align-items: center;

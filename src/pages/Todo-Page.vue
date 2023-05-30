@@ -17,6 +17,9 @@ import BackButton from '../components/Info/BackButton.vue'
                 <div class="info">description: task from DB</div>
                 <div><input type="checkbox" class="info-checkbox"/></div>
         </section>
+    <div class="todo-button-link">
+        <router-link to="/" class="todo-add-task-button">Add task</router-link>
+    </div>
     </main>
 </div>
     <footer>
@@ -26,6 +29,26 @@ import BackButton from '../components/Info/BackButton.vue'
 
 
 <style scoped>
+.todo-button-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.todo-button-link .todo-add-task-button{
+    font-family: Century Gothic;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: #45d0e2;
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #333;
+}
 .todo-main{
     margin-top: 20px;
 }
