@@ -23,3 +23,50 @@
     width: auto; 
     border-radius: 80px;
 }
+
+.default-pop-up{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: rgba(0,0,0,0.2); 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.default-pop-up .default-pop-up-inner{
+    background-color: aliceblue;
+    padding: 30px;
+    text-align: center;
+}
+
+button{
+    color: #333;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    font-family: Century Gothic;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #45d0e2;
+}
+button:hover{
+    color: #45d0e2;
+}
+
+.add{
+
+        margin-top: 10px;
+        background-color: #45e26c;
+        padding: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 30px;
+        font-size: 25px;
+        border:none;
+
+}

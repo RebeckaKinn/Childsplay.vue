@@ -1,6 +1,5 @@
 <script setup>
 import TestImg from '../img/mustache_cat.jpg'
-//PROBLEM WARNING WEE WOO WEE WOO
 import './Chooser.css';
 </script>
 

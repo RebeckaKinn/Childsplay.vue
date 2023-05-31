@@ -1,6 +1,26 @@
-<script setup>
+<script>
 import FooterMenu from '../components/menuItems/Footer-menu.vue'
 import BackButton from '../components/Info/BackButton.vue'
+import { triggers ,TogglePopUp} from '../pop-ups.js'
+import AddTask from '../components/pop-ups/add-task.vue'
+
+export default {
+  setup (){
+ 
+
+    return {
+      triggers,
+      TogglePopUp
+    }
+  },
+
+   components: {
+     FooterMenu,
+     BackButton,
+     AddTask
+   }
+}
+
 </script>
 
 <template>
@@ -18,8 +38,20 @@ import BackButton from '../components/Info/BackButton.vue'
                 <div><input type="checkbox" class="info-checkbox"/></div>
         </section>
     <div class="todo-button-link">
-        <router-link to="/" class="todo-add-task-button">Add task</router-link>
+
+        <button
+            class="todo-add-task-button"
+            @click="TogglePopUp('addTask')">
+                Add task
+        </button>
+
+
     </div>
+        <span>
+            <AddTask 
+                v-if="triggers.addTask"
+                :TogglePopUp="() => TogglePopUp('addTask')"/>
+        </span>
     </main>
 </div>
     <footer>

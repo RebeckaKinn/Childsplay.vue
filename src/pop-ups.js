@@ -4,7 +4,8 @@ import { ref } from 'vue';
 
     export const triggers = ref({
       deleteWarning: false,
-      addInfo: false,
+      addTask: false,
+      addFood: false,
     });
 
     export const TogglePopUp = (key) => {

@@ -2,7 +2,7 @@
 import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import PopUpWarning from '../components/pop-ups/delete-todo-warning.vue';
-// import { ref } from 'vue';
+import AddFood from '../components/pop-ups/add-dinner.vue'
 import { triggers ,TogglePopUp} from '../pop-ups.js'
 
 export default {
@@ -19,7 +19,8 @@ export default {
   components: {
     FooterMenu,
     BackButton,
-    PopUpWarning
+    PopUpWarning,
+    AddFood
   }
   
 }
@@ -34,22 +35,35 @@ export default {
 
     <main>
       <div class="setting-menu">
-        <router-link to="" class="setting-button">Add dinner item</router-link>
+        <button 
+          class="setting-button"
+          @click="() => TogglePopUp('addFood')">
+            Add dinner item
+        </button>
+
         <router-link to="" class="setting-button">Edit food items</router-link><br/>
-        <router-link to="" class="setting-button">Add activity</router-link>
+
+        <button class="setting-button">Add activity</button>
+
         <router-link to="" class="setting-button">Edit activities</router-link><br/>
         
         <button 
           class="setting-button" 
           @click="() => TogglePopUp('deleteWarning')">
-          Delete to-do list
+            Delete to-do list
           </button>
       </div>
+
       <span>
         <PopUpWarning 
           v-if="triggers.deleteWarning"
-          :TogglePopUp="() => TogglePopUp('deleteWarning')"
-          /></span>
+          :TogglePopUp="() => TogglePopUp('deleteWarning')"/>
+
+        <AddFood
+          v-if="triggers.addFood"
+          :TogglePopUp="() => TogglePopUp('addFood')"/>
+      </span>
+      
     </main>
 
     <footer>
@@ -85,6 +99,7 @@ main {
   font-weight: bold;
   text-align: center;
   border: 1px solid #45d0e2;
+  font-size: 20px;
 }
 .setting-button:hover{
     color: #45d0e2;

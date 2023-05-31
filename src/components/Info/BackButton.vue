@@ -22,17 +22,5 @@
     position: fixed;
     top: 10px;
     right: 10px;
-    color: #333;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    font-family: Century Gothic;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid #45d0e2;
-}
-.back-button:hover{
-    color: #45d0e2;
 }
 </style>

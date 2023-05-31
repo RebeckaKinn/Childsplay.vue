@@ -1,14 +1,19 @@
 <template>
-    <div class="pop-up-default">
-        <div class="add-task-pop-up">
+    <div class="default-pop-up">
+        <div class="default-pop-up-inner">
             <slot />
 
             <div>
-                <input type="text"/>
-                <input type="text"/>
+                <input 
+                    type="text"
+                    id="task-input"
+                    class="task-input"
+                    placeholder="Take out the trash..."/>
             </div>
 
-            <button>
+            <button 
+                class="add"
+                @click="TogglePopUp()">
                 Add task
             </button>
 
@@ -17,17 +22,19 @@
 </template>
 
 
-
 <script>
-export default {
-    setup() {
-        
-    },
+export default{
+    props: ['TogglePopUp']
 }
 </script>
 
-
-
 <style scoped>
 
+.task-input{
+    width: 300px;
+    font-size: 20px;
+    border: 1px solid rgb(206, 206, 206);
+    padding: 5px;
+    margin-bottom: 20px;
+}
 </style>
