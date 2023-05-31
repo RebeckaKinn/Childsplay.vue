@@ -76,5 +76,3 @@ import BackButton from '../components/Info/BackButton.vue'
     width: 30px;
 }
 </style>
-
-/*.checkbox havner ikke i grid aeria som valgt. WHY */

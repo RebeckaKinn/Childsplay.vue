@@ -2,17 +2,12 @@
 import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import PopUpWarning from '../components/pop-ups/delete-todo-warning.vue';
-import { ref } from 'vue';
+// import { ref } from 'vue';
+import { triggers ,TogglePopUp} from '../pop-ups.js'
 
 export default {
   setup (){
-    const triggers = ref({
-      deleteWarning: false
-    })
-
-    const TogglePopUp = (activate) => {
-      triggers.value[activate] = !triggers.value[activate]
-    }
+ 
 
     return {
       PopUpWarning,
@@ -20,11 +15,13 @@ export default {
       TogglePopUp
     }
   },
+
   components: {
     FooterMenu,
     BackButton,
     PopUpWarning
   }
+  
 }
 </script>
 
@@ -63,6 +60,8 @@ export default {
 
 
 <style scoped>
+
+
 main {
   display: flex;
   align-items: center;
