@@ -1,53 +1,17 @@
-.chooser-main{
-    margin: 10px;
-    font-family: Arial;
-}
 
 .chooser-title{
     font-size: 25px;
+    font-family: Arial;
 }
 
 .chooser-title, .chooser-description{
     text-align: center;
+    font-family: Arial;
 }
 
-.chooser-button-links {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #45d0e2;
-    margin-bottom: 20px;
-}
-
-.chooser-button-links .button {
-  font-weight: bold;
-  font-family: Century Gothic;
-  cursor: pointer;
-  text-decoration: none;
-  margin: 10px;
-  padding-top: 20px;
-  background-color: #f0f0f0;
-  padding: 25px;
-  border-radius: 50px;
-}
-
-.first-button{
-    font-size: 20px;
-    color: #333;
-    border: 1px solid #45d0e2;
-}
-
-.second-button{
+.rnd-button{
     font-size: 30px;
     color:rgb(48, 151, 48);
-    border: 1px solid rgb(48, 151, 48)
-}
-
-.chooser-button-links .button:hover {
-  color: #45d0e2;
+    border: 1px solid rgb(48, 151, 48);
+    margin-top: 20px;
 }

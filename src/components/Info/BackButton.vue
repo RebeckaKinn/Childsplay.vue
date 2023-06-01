@@ -1,9 +1,11 @@
 
 <template>
     <span>
-        <router-link to="">
-            <button class="back-button" v-on:click="Back">back</button>
-        </router-link>
+        <button 
+            class="back-button" 
+            v-on:click="Back">
+                back
+        </button>
     </span>
 </template>
 

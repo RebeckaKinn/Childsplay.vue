@@ -6,7 +6,7 @@ import { ref } from 'vue';
       deleteWarning: false,
       addTask: false,
       addFood: false,
-      viewRndMenu: false,
+      rndMenu: false,
     });
 
     export const TogglePopUp = (key) => {

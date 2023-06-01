@@ -8,7 +8,6 @@ import { triggers ,TogglePopUp} from '../pop-ups.js'
 export default {
   setup (){
     return {
-      PopUpWarning,
       triggers,
       TogglePopUp
     }

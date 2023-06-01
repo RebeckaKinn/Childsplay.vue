@@ -1,14 +1,15 @@
 <script>
 import TestImg from '../../img/mustache_cat.jpg'
 import { triggers ,TogglePopUp} from '../../pop-ups.js'
-import ChosenMenu from '../../pages/DinnerChooser.vue'
+import ChosenMenu from '../../pages/rndMenu.vue'
+import { menuToShow } from '../../components/model-controller/Inner-menu.js'
 
 export default{
   setup(){
     return{
       TogglePopUp,
       triggers,
-      ChosenMenu
+      menuToShow
     }
   },
 
@@ -34,7 +35,7 @@ export default{
       <div>
         <button 
           class="menu-img-button"
-          @click="() => TogglePopUp('viewRndMenu')">
+          @click="TogglePopUp('rndMenu'), menuToShow('dinnerRnd')">
             <img :src="TestImg" alt="testImage" class="menu-image">
         </button>  
       </div>
@@ -43,9 +44,11 @@ export default{
     <div class="menu-item">
       <ul>Activity</ul>
       <div>
-        <router-link to="/activitychooser">
+        <button
+          class="menu-img-button"
+          @click="TogglePopUp('rndMenu'), menuToShow('activityRnd')">
           <img :src="TestImg" alt="testImage" class="menu-image">
-        </router-link>
+        </button>
       </div>
 
     </div>
@@ -54,8 +57,8 @@ export default{
 
   <span>
     <ChosenMenu 
-      v-if="triggers.viewRndMenu"
-      :TogglePopUp="() => TogglePopUp('viewRndMenu')"/>
+      v-if="triggers.rndMenu"
+      :TogglePopUp="() => TogglePopUp('rndMenu')"/>
   </span>
 </template>
 
