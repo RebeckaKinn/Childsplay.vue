@@ -21,9 +21,8 @@ import './Chooser.css';
 
     <footer>
             <div class="chooser-button-links">
-                <router-link to="/activitychooser" class="button first-button">Give me another</router-link>
+                <button class="button first-button">Give me another</button>
                 <router-link to="/" class="button second-button">OK!</router-link>
             </div>
     </footer>
 </template>
-/* later plans: use one chooser page for both usages, only change data shown */

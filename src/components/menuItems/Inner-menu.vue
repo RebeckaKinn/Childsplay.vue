@@ -1,6 +1,28 @@
-<script setup>
-import TestImg from '/src/img/mustache_cat.jpg'
-//PROBLEM WARNING WEE WOO WEE WOO
+<script>
+import TestImg from '../../img/mustache_cat.jpg'
+import { triggers ,TogglePopUp} from '../../pop-ups.js'
+import ChosenMenu from '../../pages/DinnerChooser.vue'
+
+export default{
+  setup(){
+    return{
+      TogglePopUp,
+      triggers,
+      ChosenMenu
+    }
+  },
+
+  data() {
+    return {
+      TestImg: TestImg
+    }
+  },
+
+  components: {
+      TestImg,
+      ChosenMenu
+  }
+}
 </script>
 
 <template>
@@ -10,9 +32,11 @@ import TestImg from '/src/img/mustache_cat.jpg'
       <ul>Dinnerplan</ul>
 
       <div>
-        <router-link to="/dinnerchooser">
-          <img :src="TestImg" alt="testImage" class="menu-image">
-        </router-link>  
+        <button 
+          class="menu-img-button"
+          @click="() => TogglePopUp('viewRndMenu')">
+            <img :src="TestImg" alt="testImage" class="menu-image">
+        </button>  
       </div>
           
     </div>
@@ -27,11 +51,21 @@ import TestImg from '/src/img/mustache_cat.jpg'
     </div>
     
   </nav>
+
+  <span>
+    <ChosenMenu 
+      v-if="triggers.viewRndMenu"
+      :TogglePopUp="() => TogglePopUp('viewRndMenu')"/>
+  </span>
 </template>
 
 
 
 <style scoped>
+
+.menu-img-button{
+  border: none;
+}
 
 .main-menu {
   display: flex;

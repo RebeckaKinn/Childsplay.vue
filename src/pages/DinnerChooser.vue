@@ -1,6 +1,24 @@
-<script setup>
+<script>
 import TestImg from '../img/mustache_cat.jpg'
 import './Chooser.css';
+import { triggers ,TogglePopUp} from '../pop-ups.js'
+
+export default{
+    setup(){
+        return{
+            triggers,
+            TogglePopUp
+        }
+    },
+
+    data() {
+    return {
+      TestImg: TestImg
+    }
+  },
+
+    props: ['TogglePopUp']
+}
 </script>
 
 <template>
@@ -21,9 +39,12 @@ import './Chooser.css';
 
     <footer>
             <div class="chooser-button-links">
-                <router-link to="/dinnerchooser" class="button first-button">Give me another</router-link>
-                <router-link to="/" class="button second-button">OK!</router-link>
+                <button class="button first-button">Give me another</button>
+                <button
+                    class="button second-button"
+                    @click="TogglePopUp()">
+                        OK!
+                </button>
             </div>
     </footer>
 </template>
-/* later plans: use one chooser page for both usages, only change data shown */
