@@ -35,7 +35,7 @@ export default{
       <div>
         <button 
           class="menu-img-button"
-          @click="TogglePopUp('rndMenu'), menuToShow('dinnerRnd')">
+          @click="menuToShow('dinnerRnd'), TogglePopUp('rndMenu')">
             <img :src="TestImg" alt="testImage" class="menu-image">
         </button>  
       </div>
@@ -46,7 +46,7 @@ export default{
       <div>
         <button
           class="menu-img-button"
-          @click="TogglePopUp('rndMenu'), menuToShow('activityRnd')">
+          @click="menuToShow('activityRnd'), TogglePopUp('rndMenu')">
           <img :src="TestImg" alt="testImage" class="menu-image">
         </button>
       </div>

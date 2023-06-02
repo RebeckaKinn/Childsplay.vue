@@ -10,7 +10,6 @@ export let rndMenuItems = ref({
 
 export let currentView = '';
 
-
 export const menuToShow = (key) => {
 
     currentView = key;
@@ -29,7 +28,7 @@ export const rndMenuInfo = (Rnd_array) => {
 
 }
 
-
+//dummy database::
 
 const DB_food = [
     {title: 'Taco', img: TestImg, description: 'Steke tacokjøtt med mild krydder, og ikke fordele kjøttdeigen for mye slik at det er lettere for barna å spise.'},
