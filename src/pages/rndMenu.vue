@@ -1,22 +1,27 @@
 <script>
-import './Chooser.css';
+import { ref, watch } from 'vue'
 import { triggers ,TogglePopUp} from '../pop-ups.js'
-import { rndMenuItems } from '../components/model-controller/Inner-menu.js'
+import { rndMenuItems, menuToShow, currentView} from '../components/model-controller/Inner-menu.js'
 
 
 export default{
     setup(){
+
+        const currentInfo = ref(rndMenuItems.value);
+        watch(rndMenuItems, (newValue) => {
+            currentInfo.value = newValue;
+        })
+
         return{
             triggers,
             TogglePopUp,
-            rndMenuItems,
-            
+            rndMenuItems: currentInfo,
+            menuToShow,
+            currentView
         }
     },
 
     props: ['TogglePopUp'],
-
-
 
 }
 </script>
@@ -46,7 +51,8 @@ export default{
 
             <div>
                 <button 
-                    class="rnd-button">
+                    class="rnd-button"
+                    @click="menuToShow(currentView)">
                         Give me another
                 </button>
             </div>
