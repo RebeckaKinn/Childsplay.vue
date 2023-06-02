@@ -1,3 +1,18 @@
+<script>
+import {  } from '../../components/model-controller/td-list.js';
+
+export default{
+    setup(){
+        return{
+
+        }
+    },
+
+    props: ['TogglePopUp']
+}
+</script>
+
+
 <template>
     <div class="default-pop-up">
         <div class="default-pop-up-inner">
@@ -22,11 +37,6 @@
 </template>
 
 
-<script>
-export default{
-    props: ['TogglePopUp']
-}
-</script>
 
 <style scoped>
 

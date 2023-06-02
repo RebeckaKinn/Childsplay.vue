@@ -3,14 +3,15 @@ import FooterMenu from '../components/menuItems/Footer-menu.vue'
 import BackButton from '../components/Info/BackButton.vue'
 import { triggers ,TogglePopUp} from '../pop-ups.js'
 import AddTask from '../components/pop-ups/add-task.vue'
+import { toDoList } from '../components/model-controller/td-list.js';
 
 export default {
   setup (){
  
-
     return {
       triggers,
-      TogglePopUp
+      TogglePopUp,
+      toDoList
     }
   },
 
@@ -34,7 +35,7 @@ export default {
 
     <main class="todo-main">
         <section class="todo-grid">
-                <div class="info">description: task from DB</div>
+                {{ toDoList() }}
                 <div><input type="checkbox" class="info-checkbox"/></div>
         </section>
     <div class="todo-button-link">

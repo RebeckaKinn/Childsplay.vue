@@ -1,8 +1,7 @@
 <script>
-import { ref, watch } from 'vue'
-import { triggers ,TogglePopUp} from '../pop-ups.js'
-import { rndMenuItems, menuToShow, currentView} from '../components/model-controller/Inner-menu.js'
-
+import { ref, watch } from 'vue';
+import { triggers ,TogglePopUp} from '../pop-ups.js';
+import { rndMenuItems, menuToShow, currentView} from '../components/model-controller/Inner-menu.js';
 
 export default{
     setup(){
@@ -22,8 +21,6 @@ export default{
     },
 
     props: ['TogglePopUp'],
-
-
 }
 </script>
 
