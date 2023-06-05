@@ -1,5 +1,6 @@
 import './main.css'
 import './Chooser.css';
+import './todo.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 

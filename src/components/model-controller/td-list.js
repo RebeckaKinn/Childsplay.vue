@@ -9,11 +9,12 @@ export const UpdateList = () => {
 }
 
 export const toDoList = () => {
-    let output = '';
-    DB_toDoList.forEach(task => {
-        output += '<div class="info">${task.description}</div> <div><input type="checkbox" class="info-checkbox"/></div>';
-    });
-    return output;
+    // let output = '';
+    // DB_toDoList.forEach(task => {
+    //     output += `<div class="info">${task.description}</div> <div><input type="checkbox" class="info-checkbox"/></div>`;
+    // });
+    // return output;
+    return DB_toDoList;
 }
 
 //dummy DB::
