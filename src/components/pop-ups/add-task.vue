@@ -1,10 +1,10 @@
 <script>
-import {  } from '../../components/model-controller/td-list.js';
+import { UpdateList } from '../../components/model-controller/td-list.js';
 
 export default{
     setup(){
         return{
-
+            UpdateList
         }
     },
 
@@ -27,8 +27,8 @@ export default{
             </div>
 
             <button 
-                class="add"
-                @click="TogglePopUp()">
+                class="todo-add-task-button"
+                @click="UpdateList(), TogglePopUp()">
                 Add task
             </button>
 

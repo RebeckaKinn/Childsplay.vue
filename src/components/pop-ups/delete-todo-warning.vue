@@ -1,3 +1,20 @@
+<script>
+import { deleteListData } from '../../components/model-controller/td-list.js';
+
+export default{
+
+    setup(){
+        return{
+            deleteListData
+        }
+    },
+
+    props: ['TogglePopUp']
+}
+
+</script>
+
+
 <template>
     <div class="default-pop-up">
         <div class="default-pop-up-inner">
@@ -8,7 +25,7 @@
             <div class="button-container">
             <button 
                 class="add"
-                @click="TogglePopUp()">
+                @click="deleteListData(), TogglePopUp()">
                     Yes
             </button>
 
@@ -23,17 +40,8 @@
     </div>
 </template>
 
-<script>
-export default{
-    props: ['TogglePopUp']
-}
-
-</script>
 
 <style scoped>
-
-
-
 .button-container {
   display: flex;
   justify-content: center;

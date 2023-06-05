@@ -1,29 +1,34 @@
-import { ref } from 'vue';
 
 
+export const toDoList = () => {
+    return DB_toDoList;
+}
 
 export const UpdateList = () => {
 
     let newTask = document.getElementById('task-input').value;
-
+    if(newTask === '' || null) return;
+    let newId = DB_toDoList.length * 2;
+    DB_toDoList.push(
+        {description: newTask,
+        id: newId,
+        done: false
+        },
+    );
 }
 
-export const toDoList = () => {
-    // let output = '';
-    // DB_toDoList.forEach(task => {
-    //     output += `<div class="info">${task.description}</div> <div><input type="checkbox" class="info-checkbox"/></div>`;
-    // });
-    // return output;
-    return DB_toDoList;
+export const deleteListData = () => {
+    DB_toDoList.splice(0);
 }
 
 //dummy DB::
 
 const DB_toDoList = [
-    {description: 'Ta oppvasken'},
-    {description: 'Handle'},
-    {description: 'Gå med hunden'},
-    {description: 'Koble opp SQL'},
-    {description: 'Få barnevakt i helgen'},
-    {description: 'Bestille mat'},
-]//ta inn checkbox og få lista til å generere seg. 
+    {description: 'Ta oppvasken', id: 0, done: false},
+    {description: 'Handle', id: 1, done: false},
+    {description: 'Gå med hunden', id: 2, done: false},
+    {description: 'Koble opp SQL', id: 3, done: false},
+    {description: 'Få barnevakt i helgen', id: 4, done: false},
+    {description: 'Bestille mat', id: 5, done: false},
+    {description: 'Pakke til helgen', id: 6, done: true},
+]
