@@ -14,8 +14,11 @@
 
 .title{
     font-size: 30px;
+    margin: 10px;
 }
 .under-title{
-    font-size: 20px;
+    font-size: 30px;
+    font-family: Brush Script MT;
+    margin: 0px;
 }
 </style>
