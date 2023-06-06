@@ -15,7 +15,7 @@ div {
     width: 100%;
     background-color: #8f8e8e;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     text-align: center;
     font-size: 12px;
     color: #111010;

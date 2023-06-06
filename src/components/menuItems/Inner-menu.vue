@@ -2,20 +2,31 @@
 import TestImg from '../../img/mustache_cat.jpg'
 import { triggers ,TogglePopUp} from '../../pop-ups.js'
 import ChosenMenu from '../../pages/rndMenu.vue'
-import { menuToShow } from '../../components/model-controller/Inner-menu.js'
+import { menuToShow, menuImage } from '../../components/model-controller/Inner-menu.js'
+import { ref } from 'vue';
 
 export default{
   setup(){
+
+    const dinnerImage = ref(menuImage('dinnerRnd'));
+    const activityImage = ref(menuImage('activityRnd'));
+
     return{
       TogglePopUp,
       triggers,
-      menuToShow
+      menuToShow,
+      menuImage,
+      dinnerImage,
+      activityImage
     }
   },
 
+//Bruk en måte å få random bildet. Bruke metoden i rndMenu.vue?
+
   data() {
     return {
-      TestImg: TestImg
+      TestImg: TestImg,
+
     }
   },
 
@@ -27,6 +38,7 @@ export default{
 </script>
 
 <template>
+
   <nav class="main-menu">
 
     <div class="menu-item">
@@ -36,7 +48,7 @@ export default{
         <button 
           class="menu-img-button"
           @click="menuToShow('dinnerRnd'), TogglePopUp('rndMenu')">
-            <img :src="TestImg" alt="testImage" class="menu-image">
+            <img :src="dinnerImage" alt="dinner-Image" class="menu-image">
         </button>  
       </div>
           
@@ -47,7 +59,7 @@ export default{
         <button
           class="menu-img-button"
           @click="menuToShow('activityRnd'), TogglePopUp('rndMenu')">
-          <img :src="TestImg" alt="testImage" class="menu-image">
+          <img :src="activityImage" alt="activity-image" class="menu-image">
         </button>
       </div>
 
@@ -76,7 +88,7 @@ export default{
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
-  padding: 40px;
+  padding: 30px;
   border-radius: 10px;
 }
 
@@ -96,7 +108,7 @@ export default{
 }
 
 .menu-item div {
-  margin-top: 10px;
+  margin-top: 5px;
   
 }
 

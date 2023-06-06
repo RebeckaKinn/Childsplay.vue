@@ -19,8 +19,9 @@
 }
 
 .menu-image{
-    height: 250px; 
-    width: auto; 
+    height: 230px; 
+    width: 230px;
+    object-fit: cover;
     border-radius: 80px;
 }
 
@@ -59,14 +60,12 @@ button:hover{
 }
 
 .add{
-
-        margin-top: 10px;
-        background-color: #45e26c;
-        padding: 10px;
-        padding-left: 15px;
-        padding-right: 15px;
-        border-radius: 30px;
-        font-size: 25px;
-        border:none;
-
+    margin-top: 10px;
+    background-color: #45e26c;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 30px;
+    font-size: 25px;
+    border:none;
 }

@@ -4,10 +4,8 @@ export const toDoList = () => {
     return DB_toDoList;
 }
 
-export const UpdateList = () => {
+export const UpdateList = (newTask) => {
 
-    let newTask = document.getElementById('task-input').value;
-    if(newTask === '' || null) return;
     let newId = DB_toDoList.length * 2;
     DB_toDoList.push(
         {description: newTask,

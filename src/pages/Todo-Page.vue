@@ -3,7 +3,7 @@ import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import { triggers ,TogglePopUp} from '../pop-ups.js';
 import AddTask from '../components/pop-ups/add-task.vue';
-import { toDoList } from '../components/model-controller/td-list.js';
+import { toDoList, UpdateList} from '../components/model-controller/td-list.js';
 import { onMounted, ref, computed } from 'vue';
 
 export default {
@@ -23,12 +23,17 @@ export default {
         taskList.value = await toDoList();
     })
 
+    const addTask = newTask => {
+      UpdateList(newTask);
+    };
+
     return {
       triggers,
       TogglePopUp,
       taskList,
       completedTasks,
       currentTasks,
+      addTask
     }
   },
 

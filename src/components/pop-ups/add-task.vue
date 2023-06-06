@@ -1,10 +1,20 @@
 <script>
 import { UpdateList } from '../../components/model-controller/td-list.js';
+import { ref } from 'vue';
 
 export default{
-    setup(){
+    setup(props){
+        const newTask = ref('');
+        const addTaskAndClosePopUp = () => {
+            if (newTask.value === '' || newTask.value === null) return;
+            UpdateList(newTask.value);
+            newTask.value = '';
+            props.TogglePopUp();
+        }
         return{
-            UpdateList
+            UpdateList,
+            newTask, 
+            addTaskAndClosePopUp
         }
     },
 
@@ -21,14 +31,14 @@ export default{
             <div>
                 <input 
                     type="text"
-                    id="task-input"
+                    v-model="newTask"
                     class="task-input"
                     placeholder="Take out the trash..."/>
             </div>
 
             <button 
                 class="todo-add-task-button"
-                @click="UpdateList(), TogglePopUp()">
+                @click="addTaskAndClosePopUp">
                 Add task
             </button>
 
