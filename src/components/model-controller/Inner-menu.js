@@ -1,5 +1,4 @@
 
-import TestImg from '../../img/mustache_cat.jpg';
 import Pasta from '../../img/pasta.jpg'
 import Burger from '../../img/burger.jpg'
 import Taco from '../../img/tacos.jpg'
@@ -15,24 +14,27 @@ import Skog from '../../img/bøkeskogen.jpg'
 import { ref } from 'vue';
 
 export let rndMenuItems = ref({
-    title: 'kake',
-    description: 'bak en kake',
-    img: TestImg,
+    title: '',
+    description: '',
+    img: null,
+})
+
+export const frontMenuImage = ref({
+    dinnerImage: '',
+    activityImage: ''
 })
 
 export let currentView = '';
 let lastIndex = '';
 
+
 export const menuToShow = (key) => {
 
     currentView = key;
-    console.log('currentView - ' + currentView);
     rndMenuInfo(key === 'dinnerRnd' ? DB_food : DB_activity);
 }
 
 export const rndMenuInfo = (Rnd_array) => {
-    let dinnerImage = '';
-    let activityImage = '';
     let rndIndex = Math.floor(Math.random() * Rnd_array.length);
     if(lastIndex === rndIndex) {
         rndIndex = rndIndex === Rnd_array.length ? rndIndex -1 : rndIndex +1;
@@ -43,16 +45,42 @@ export const rndMenuInfo = (Rnd_array) => {
     rndMenuItems.value.title = Rnd_array[rndIndex].title;
     rndMenuItems.value.description = Rnd_array[rndIndex].description;
     rndMenuItems.value.img = Rnd_array[rndIndex].img;
+
+    if(Rnd_array === DB_food) {
+        frontMenuImage.value.dinnerImage = Rnd_array[rndIndex].img;
+        return frontMenuImage.value.dinnerImage;
+    }
+    if(Rnd_array === DB_activity) {
+        frontMenuImage.value.activityImage = Rnd_array[rndIndex].img;
+        return frontMenuImage.value.activityImage;
+    }
+
+}
+
+export const changeMenuImage = (key) => {
+    if (key === 'dinnerRnd') {
+        frontMenuImage.value.dinnerImage = rndMenuItems.value.img;
+        return frontMenuImage.value.dinnerImage
+    }
+    if (key === 'activityRnd') {
+        frontMenuImage.value.activityImage = rndMenuItems.value.img;
+        return frontMenuImage.value.activityImage
+    }
 }
 
 
 export const menuImage = (key) => {
-    let image = '';
-    let Rnd_array = key === 'dinnerRnd' ? DB_food : DB_activity;
-    
-    let rndNumber = Math.floor(Math.random() * Rnd_array.length)
-    image = Rnd_array[rndNumber].img;  
-    return image;
+  let Rnd_array = key === 'dinnerRnd' ? DB_food : DB_activity
+  let rndNumber = Math.floor(Math.random() * Rnd_array.length)
+
+  if (key === 'dinnerRnd') {
+    frontMenuImage.value.dinnerImage = Rnd_array[rndNumber].img
+    return frontMenuImage.value.dinnerImage;
+  }
+  if (key === 'activityRnd') {
+    frontMenuImage.value.activityImage = Rnd_array[rndNumber].img
+    return frontMenuImage.value.activityImage;
+  }
 }
 
 //dummy database::
@@ -72,3 +100,5 @@ const DB_activity = [
     {title: 'Besøke besteforeldrene', img: Hus, description: 'Avtal besøk og gå tur i nærområdet eller lek i hagen.'},
     {title: 'Shopping', img: Shopping, description: 'Kontakt noen å ta med på senteret og la barna gå rundt og leke. Spis på kafè, men ta med noe ekstra de kan gomle på.'},
 ];
+
+//make the menuImage to change correspondingly according to what you end up with.

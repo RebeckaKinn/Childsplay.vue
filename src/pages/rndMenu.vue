@@ -1,7 +1,7 @@
 <script>
 import { ref, watch } from 'vue';
 import { triggers ,TogglePopUp} from '../pop-ups.js';
-import { rndMenuItems, menuToShow, currentView} from '../components/model-controller/Inner-menu.js';
+import { rndMenuItems, menuToShow, currentView, changeMenuImage} from '../components/model-controller/Inner-menu.js';
 
 export default{
     setup(){
@@ -16,7 +16,8 @@ export default{
             TogglePopUp,
             rndMenuItems: currentInfo,
             menuToShow,
-            currentView
+            currentView,
+            changeMenuImage
         }
     },
 
@@ -31,7 +32,7 @@ export default{
             <router-link to="/">
                 <button 
                     class="back-button"
-                    @click="TogglePopUp()">
+                    @click="changeMenuImage(currentView), TogglePopUp()">
                         home
                 </button>
             </router-link>

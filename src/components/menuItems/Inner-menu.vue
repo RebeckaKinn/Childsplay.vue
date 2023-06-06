@@ -1,9 +1,8 @@
 <script>
-import TestImg from '../../img/mustache_cat.jpg'
 import { triggers ,TogglePopUp} from '../../pop-ups.js'
 import ChosenMenu from '../../pages/rndMenu.vue'
-import { menuToShow, menuImage } from '../../components/model-controller/Inner-menu.js'
-import { ref } from 'vue';
+import { menuToShow, menuImage, frontMenuImage } from '../../components/model-controller/Inner-menu.js'
+import { ref, watch } from 'vue';
 
 export default{
   setup(){
@@ -17,21 +16,12 @@ export default{
       menuToShow,
       menuImage,
       dinnerImage,
-      activityImage
-    }
-  },
-
-//Bruk en måte å få random bildet. Bruke metoden i rndMenu.vue?
-
-  data() {
-    return {
-      TestImg: TestImg,
-
+      activityImage,
+      frontMenuImage
     }
   },
 
   components: {
-      TestImg,
       ChosenMenu
   }
 }
