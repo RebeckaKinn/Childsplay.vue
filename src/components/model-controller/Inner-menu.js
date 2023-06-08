@@ -19,17 +19,18 @@ export let rndMenuItems = ref({
     img: null,
 })
 
-export const frontMenuImage = ref({
-    dinnerImage: '',
-    activityImage: ''
-})
+export const activity = ref(
+    {img: null, state: false},
+);
+export const dinner = ref(
+    {img: null, state: false},
+);
 
 export let currentView = '';
 let lastIndex = '';
 
 
 export const menuToShow = (key) => {
-
     currentView = key;
     rndMenuInfo(key === 'dinnerRnd' ? DB_food : DB_activity);
 }
@@ -40,46 +41,41 @@ export const rndMenuInfo = (Rnd_array) => {
         rndIndex = rndIndex === Rnd_array.length ? rndIndex -1 : rndIndex +1;
     }
     lastIndex = rndIndex;
-    console.log('rndIndex - ' + rndIndex);
 
     rndMenuItems.value.title = Rnd_array[rndIndex].title;
     rndMenuItems.value.description = Rnd_array[rndIndex].description;
     rndMenuItems.value.img = Rnd_array[rndIndex].img;
-
-    if(Rnd_array === DB_food) {
-        frontMenuImage.value.dinnerImage = Rnd_array[rndIndex].img;
-        return frontMenuImage.value.dinnerImage;
-    }
-    if(Rnd_array === DB_activity) {
-        frontMenuImage.value.activityImage = Rnd_array[rndIndex].img;
-        return frontMenuImage.value.activityImage;
-    }
-
 }
 
 export const changeMenuImage = (key) => {
     if (key === 'dinnerRnd') {
-        frontMenuImage.value.dinnerImage = rndMenuItems.value.img;
-        return frontMenuImage.value.dinnerImage
+        dinner.value.state = true;
+        dinner.value.img = rndMenuItems.value.img;
+        return dinner.value.img;
     }
     if (key === 'activityRnd') {
-        frontMenuImage.value.activityImage = rndMenuItems.value.img;
-        return frontMenuImage.value.activityImage
+        activity.value.state = true;
+        activity.value.img = rndMenuItems.value.img;
+        return activity.value.img;
     }
+    return;
 }
 
+//nå fungerer det å bytte bildet i forhold til valgt middag eller aktivitet.
+//samt det er random før man velger. GOOOD
+//Nå må det bli oppdatert dynamisk. Real time-update. NB google that shit. 
 
 export const menuImage = (key) => {
   let Rnd_array = key === 'dinnerRnd' ? DB_food : DB_activity
   let rndNumber = Math.floor(Math.random() * Rnd_array.length)
 
-  if (key === 'dinnerRnd') {
-    frontMenuImage.value.dinnerImage = Rnd_array[rndNumber].img
-    return frontMenuImage.value.dinnerImage;
+  if (key === 'dinnerRnd' && !dinner.value.state) {
+    dinner.value.img = Rnd_array[rndNumber].img
+    return dinner.value.img;
   }
-  if (key === 'activityRnd') {
-    frontMenuImage.value.activityImage = Rnd_array[rndNumber].img
-    return frontMenuImage.value.activityImage;
+  if (key === 'activityRnd' && !activity.value.state) {
+    activity.value.img = Rnd_array[rndNumber].img
+    return activity.value.img;
   }
 }
 
@@ -100,5 +96,3 @@ const DB_activity = [
     {title: 'Besøke besteforeldrene', img: Hus, description: 'Avtal besøk og gå tur i nærområdet eller lek i hagen.'},
     {title: 'Shopping', img: Shopping, description: 'Kontakt noen å ta med på senteret og la barna gå rundt og leke. Spis på kafè, men ta med noe ekstra de kan gomle på.'},
 ];
-
-//make the menuImage to change correspondingly according to what you end up with.

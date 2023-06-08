@@ -23,9 +23,7 @@ export default {
         taskList.value = await toDoList();
     })
 
-    const addTask = newTask => {
-      UpdateList(newTask);
-    };
+ 
 
     return {
       triggers,
@@ -33,7 +31,7 @@ export default {
       taskList,
       completedTasks,
       currentTasks,
-      addTask
+      AddTask
     }
   },
 

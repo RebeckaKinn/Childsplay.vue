@@ -1,23 +1,23 @@
 <script>
 import { triggers ,TogglePopUp} from '../../pop-ups.js'
 import ChosenMenu from '../../pages/rndMenu.vue'
-import { menuToShow, menuImage, frontMenuImage } from '../../components/model-controller/Inner-menu.js'
-import { ref, watch } from 'vue';
+import { menuToShow, dinner, activity} from '../../components/model-controller/Inner-menu.js'
+import { ref } from 'vue';
 
 export default{
   setup(){
 
-    const dinnerImage = ref(menuImage('dinnerRnd'));
-    const activityImage = ref(menuImage('activityRnd'));
+    const dinnerImage = ref(dinner.value.img);
+    const activityImage = ref(activity.value.img);
 
     return{
       TogglePopUp,
       triggers,
       menuToShow,
-      menuImage,
       dinnerImage,
       activityImage,
-      frontMenuImage
+      dinner, 
+      activity
     }
   },
 
@@ -28,9 +28,7 @@ export default{
 </script>
 
 <template>
-
   <nav class="main-menu">
-
     <div class="menu-item">
       <ul>Dinnerplan</ul>
 
@@ -38,7 +36,10 @@ export default{
         <button 
           class="menu-img-button"
           @click="menuToShow('dinnerRnd'), TogglePopUp('rndMenu')">
-            <img :src="dinnerImage" alt="dinner-Image" class="menu-image">
+            <img 
+              :src="dinnerImage" 
+              alt="dinner-Image" 
+              class="menu-image">
         </button>  
       </div>
           
@@ -49,7 +50,10 @@ export default{
         <button
           class="menu-img-button"
           @click="menuToShow('activityRnd'), TogglePopUp('rndMenu')">
-          <img :src="activityImage" alt="activity-image" class="menu-image">
+            <img 
+              :src="activityImage" 
+              alt="activity-image" 
+              class="menu-image">
         </button>
       </div>
 
