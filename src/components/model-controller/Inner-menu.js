@@ -61,10 +61,6 @@ export const changeMenuImage = (key) => {
     return;
 }
 
-//nå fungerer det å bytte bildet i forhold til valgt middag eller aktivitet.
-//samt det er random før man velger. GOOOD
-//Nå må det bli oppdatert dynamisk. Real time-update. NB google that shit. 
-
 export const menuImage = (key) => {
   let Rnd_array = key === 'dinnerRnd' ? DB_food : DB_activity
   let rndNumber = Math.floor(Math.random() * Rnd_array.length)

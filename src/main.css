@@ -23,6 +23,7 @@
     width: 230px;
     object-fit: cover;
     border-radius: 80px;
+    margin-bottom: 15px;
 }
 
 .default-pop-up{
@@ -54,6 +55,7 @@ button{
     font-weight: bold;
     cursor: pointer;
     border: 1px solid #45d0e2;
+    text-decoration: none;
 }
 button:hover{
     color: #45d0e2;
@@ -69,3 +71,4 @@ button:hover{
     font-size: 25px;
     border:none;
 }
+
