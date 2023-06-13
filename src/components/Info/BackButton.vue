@@ -1,28 +1,53 @@
+<script>
+import { TogglePopUp, triggers } from '../../pop-ups.js';
+import Arrow from '../../img/back-arrow_v3.png';
+
+    export default {
+        setup(){
+            return{
+                TogglePopUp,
+                triggers,
+                Arrow
+            }
+        },
+
+       methods: {
+    Back() {
+    let popUpClosed = false;
+
+    Object.keys(triggers.value).forEach(key => {
+      if (triggers.value[key]) {
+        TogglePopUp(key);
+        popUpClosed = true;
+      }
+    });
+
+    if (!popUpClosed) {
+      this.$router.go(-1);
+    }
+  }
+},    
+    }
+</script>
 
 <template>
     <span>
-        <button 
+        <img 
+            :src="Arrow"
             class="back-button" 
+            alt="back-button-arrow"
             v-on:click="Back">
-                back
-        </button>
     </span>
 </template>
 
-<script>
-    export default {
-        methods: {
-            Back(){
-                return this.$router.go(-1)
-            }
-        }
-    }
-</script>
 
 <style scoped>
 .back-button{
     position: fixed;
     top: 10px;
-    right: 10px;
+    left: 10px;
+    z-index: 9999;
+    height: 60px;
+    width: auto;
 }
 </style>

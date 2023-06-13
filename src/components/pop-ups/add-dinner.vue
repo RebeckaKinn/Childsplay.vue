@@ -4,23 +4,19 @@
             <slot/>
 
             <div class="form-field">
-                <label for="food-name" class="rndMenu-label name-label">
-                    Name
-                </label>
                 <input
                     type="text"
                     id="food-name"
-                    class="rndMenu-input"/>
+                    class="rndMenu-input"
+                    placeholder="Name"/>
             </div>
 
             <div class="form-field">
-                <label for="food-description" class="rndMenu-label">
-                    Description
-                </label>
                 <textarea  
                     id="food-description"
-                    class="rndMenu-textarea"
-                    @input="autoResizeTextArea"/>
+                    class="rndMenu-input rndMenu-textarea"
+                    @input="autoResizeTextArea"
+                    placeholder="Description"/>
             </div>
 
             <div>
@@ -63,16 +59,18 @@ export default {
 
 autoResizeTextArea(event) {
   const textarea = event.target;
-  const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight);
-  const maxLines = 10; // Set the maximum number of lines here
+  const maxHeight = '400px'; 
 
-  const lines = Math.floor(textarea.scrollHeight / lineHeight);
-  textarea.style.overflowY = lines > maxLines ? 'scroll' : 'auto';
-  textarea.style.height = lines > maxLines ? `${maxLines * lineHeight}px` : 'auto';
+  textarea.style.height = 'auto';
+  textarea.style.height = `${textarea.scrollHeight}px`;
+
+  if (textarea.scrollHeight > parseInt(maxHeight)) {
+    textarea.style.overflowY = 'scroll';
+    textarea.style.height = maxHeight;
+  } else {
+    textarea.style.overflowY = 'hidden';
+  }
 }
-
-//textaerea does not "grow" when you write, only adds a scrollbar. 
-
   },
   props: ['TogglePopUp'],
   
@@ -103,27 +101,13 @@ autoResizeTextArea(event) {
 
 .rndMenu-input {
     flex: 1;
-    margin-left: 10px;
-    resize: vertical;
-    min-height: 5px;
     font-size: 20px;
     font-family: Arial;
 }
 
 .rndMenu-textarea {
-  flex: 1;
-  margin-left: 10px;
   resize: none;
   min-height: 100px;
   overflow-y: auto;
-  font-size: 20px;
-  font-family: Arial;
-}
-
-.rndMenu-label {
-  flex: 0;
-}
-.name-label{
-    margin-right: 37px;
 }
 </style>

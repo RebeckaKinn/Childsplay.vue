@@ -1,6 +1,7 @@
 <script>
 import { ref, watch } from 'vue';
 import { TogglePopUp} from '../pop-ups.js';
+import BackButton from '../components/Info/BackButton.vue';
 import { rndMenuItems, menuToShow, currentView, changeMenuImage} from '../components/model-controller/Inner-menu.js';
 
 export default{
@@ -16,18 +17,22 @@ export default{
         rndMenuItems: currentInfo,
         menuToShow,
         currentView,
-        changeMenuImage
+        changeMenuImage,
         }
     },
-
+    components: {
+        BackButton
+    },
     props: ['TogglePopUp'],
 }
 </script>
 
 <template>
+
+
     <div class="default-pop-up">
         <div class="default-pop-up-inner">
-
+                <BackButton/>
             <router-link to="/">
                 <button 
                     class="back-button"
