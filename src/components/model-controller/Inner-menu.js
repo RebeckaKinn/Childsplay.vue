@@ -17,7 +17,7 @@ export let rndMenuItems = ref({
     title: '',
     description: '',
     img: null,
-})
+});
 
 export const activity = ref(
     {img: null, state: false},
@@ -77,7 +77,7 @@ export const menuImage = (key) => {
 
 //dummy database::
 
-const DB_food = [
+export const DB_food = [
     {title: 'Taco', img: Taco, description: 'Steke tacokjøtt med mild krydder, og ikke fordele kjøttdeigen for mye slik at det er lettere for barna å spise.'},
     {title: 'Fiskekaker og pasta', img: Pasta, description: 'Steke i terninger med kokte grønnsaker og pasta.'},
     {title: 'Burger', img: Burger, description: 'Steke i paninigjernet med ost og krydder, samt ristet burgerbrød.'},
@@ -85,7 +85,7 @@ const DB_food = [
     {title: 'Kjøttboller med saus', img: Kjøttboller, description: 'Stek bollene, kok grønnsaker og lag sausen separat og tilby hvis de ønsker.'},
 ];
 
-const DB_activity = [
+export const DB_activity = [
     {title: 'Lokale lekeplassen', img: Lekeplass, description: 'La vognen være hjemme, ta med bøtte og spade og la de grave og huske.'},
     {title: 'Stranda', img: Stranda, description: 'Sykle eller gå, ta med lite telt og graveleker, samt noe å spise og bruk mesteparten av dagen ute.'},
     {title: 'Tur i bøkeskogen', img: Skog, description: 'Gå igjennom skogen og end opp ved lekeplassen. Kjøp is hvis været er fint. Husk graveleker!'},

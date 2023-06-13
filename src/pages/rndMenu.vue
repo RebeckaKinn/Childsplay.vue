@@ -41,7 +41,7 @@ export default{
                 </button>
             </router-link>
 
-            <div class="default-header">
+            <div class="default-header header-rework">
                 Tip of the day is...
             </div>
 
@@ -63,3 +63,9 @@ export default{
         </div>
     </div>
 </template>
+
+<style scoped>
+.header-rework{
+    font-size: 25px;
+}
+</style>

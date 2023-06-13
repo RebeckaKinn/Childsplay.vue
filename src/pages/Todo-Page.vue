@@ -56,10 +56,12 @@ export default {
     <main class="todo-main">
         <section class="todo-grid" v-for="task in currentTasks" :key="task.id">
                 <div class="info">{{ task.description }}</div>
-                <div><input 
+                <div>
+                    <input 
                         type="checkbox" 
                         class="info-checkbox" 
-                        v-model="task.done"/></div>
+                        v-model="task.done"/>
+                </div>
         </section>
 
 

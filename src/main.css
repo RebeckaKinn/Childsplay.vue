@@ -7,11 +7,10 @@
 }
 
 .default-header{
-    text-align: center;
     display: flex;
+    text-align: center;
     align-content: flex-start;
     align-items: baseline;
-    align-items: center;
     font-family: Consolas;
     border-bottom: 1px solid #45d0e2;
     font-size: 30px;

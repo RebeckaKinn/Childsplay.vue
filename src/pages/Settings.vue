@@ -2,14 +2,16 @@
 import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import PopUpWarning from '../components/pop-ups/delete-todo-warning.vue';
-import AddFood from '../components/pop-ups/add-dinner.vue'
+import AddInfo from '../components/pop-ups/add-info.vue'
+import { ShowRndAddMenu } from '../components/model-controller/Add-rnd-info.js';
 import { triggers ,TogglePopUp} from '../pop-ups.js'
 
 export default {
   setup (){
     return {
       triggers,
-      TogglePopUp
+      TogglePopUp,
+      ShowRndAddMenu
     }
   },
 
@@ -17,7 +19,7 @@ export default {
     FooterMenu,
     BackButton,
     PopUpWarning,
-    AddFood
+    AddInfo
   }
   
 }
@@ -34,15 +36,29 @@ export default {
       <div class="setting-menu">
         <button 
           class="setting-button"
-          @click="() => TogglePopUp('addFood')">
+          @click="ShowRndAddMenu('dinnerRnd'), TogglePopUp('addInfo')">
             Add dinner item
         </button>
 
-        <router-link to="" class="setting-button">Edit food items</router-link><br/>
+        <button 
+          class="setting-button"
+          @click="null">
+            Edit dinner
+        </button>
+        <br/>
 
-        <button class="setting-button">Add activity</button>
+         <button 
+          class="setting-button"
+          @click="ShowRndAddMenu('activityRnd'), TogglePopUp('addInfo')">
+            Add activity
+        </button>
 
-        <router-link to="" class="setting-button">Edit activities</router-link><br/>
+        <button 
+          class="setting-button"
+          @click="null">
+            Edit activity
+        </button>
+        <br/>
         
         <button 
           class="setting-button" 
@@ -56,9 +72,9 @@ export default {
           v-if="triggers.deleteWarning"
           :TogglePopUp="() => TogglePopUp('deleteWarning')"/>
 
-        <AddFood
-          v-if="triggers.addFood"
-          :TogglePopUp="() => TogglePopUp('addFood')"/>
+        <AddInfo
+          v-if="triggers.addInfo"
+          :TogglePopUp="() => TogglePopUp('addInfo')"/>
       </span>
       
     </main>

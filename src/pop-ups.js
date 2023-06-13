@@ -4,8 +4,7 @@ import { ref } from 'vue';
 
     export const triggers = ref({
       deleteWarning: false,
-      addTask: false,
-      addFood: false,
+      addInfo: false,
       rndMenu: false,
     });
 
