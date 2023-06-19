@@ -1,32 +1,51 @@
+import axios from 'axios';
+import { ref } from 'vue';
 
+const url = 'http://localhost:5121';
 
-export const toDoList = () => {
-    return DB_toDoList;
+export let tasks = ref([]);
+
+export const fetchTasks = async () => {
+    try {
+        console.log('Fetching tasks...');
+        const response = await axios.get(`${url}/to-do-list`);
+        console.log(response);
+  
+        tasks = ref(response.data.map(task => ({
+            id: task.id,
+            description: task.task,
+            done: task.isCompleted,
+        })));
+        
+        console.log('Fetched tasks:', tasks.value);
+        return tasks;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+  };
+//NEED REWORK
+export const UpdateList = async(newTask) => {
+    try{
+        console.log('Adding tasks...');
+        const response = await axios.post(`${url}/to-do-list`, {task: newTask});
+        console.log(response);
+    } catch (error){
+        console.log(error);
+        return;
+    }
+
 }
 
-export const UpdateList = (newTask) => {
-
-    let newId = DB_toDoList.length * 2;
-    DB_toDoList.push(
-        {description: newTask,
-        id: newId,
-        done: false
-        },
-    );
+export const deleteListData = async() => {
+    try{
+        console.log('Deleting tasks...');
+        const response = await axios.delete(`${url}/settings`);
+        console.log(response);
+    } catch (error){
+        console.log(error);
+        return;
+    }
 }
 
-export const deleteListData = () => {
-    DB_toDoList.splice(0);
-}
-
-//dummy DB::
-
-const DB_toDoList = [
-    {description: 'Ta oppvasken', id: 0, done: false},
-    {description: 'Handle', id: 1, done: false},
-    {description: 'Gå med hunden', id: 2, done: false},
-    {description: 'Koble opp SQL', id: 3, done: false},
-    {description: 'Få barnevakt i helgen', id: 4, done: false},
-    {description: 'Bestille mat', id: 5, done: false},
-    {description: 'Pakke til helgen', id: 6, done: true},
-]
+//the update bool value needs to be added. 

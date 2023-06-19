@@ -3,37 +3,35 @@ import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import { triggers ,TogglePopUp} from '../pop-ups.js';
 import AddTask from '../components/pop-ups/add-task.vue';
-import { toDoList, UpdateList} from '../components/model-controller/td-list.js';
-import { onMounted, ref, computed } from 'vue';
+import { fetchTasks, tasks } from '../components/model-controller/td-list.js';
+import { onMounted, computed } from 'vue';
 
 export default {
-  setup (){
-    
-    const taskList = ref([]);
+  setup() {
 
-    const completedTasks = computed( () => {
-        return taskList.value.filter(task => task.done === true);
-    })
-    
-    const currentTasks = computed( () => {
-        return taskList.value.filter(task => task.done === false);
-    })
+  onMounted(async () => {
+    console.log('Fetching tasks in VUE file...');
+    tasks.value = await fetchTasks(); 
+  });
 
-    onMounted(async () => {
-        taskList.value = await toDoList();
-    })
+  const completedTasks = computed(() => {
+    return tasks.value.filter(task => task.done === true); 
+  });
 
- 
+  const currentTasks = computed(() => {
+    return tasks.value.filter(task => task.done === false); 
+  });
 
-    return {
-      triggers,
-      TogglePopUp,
-      taskList,
-      completedTasks,
-      currentTasks,
-      AddTask
-    }
-  },
+
+  return {
+    triggers,
+    TogglePopUp,
+    completedTasks,
+    currentTasks,
+    AddTask,
+    tasks
+  };
+},
 
    components: {
      FooterMenu,
@@ -45,51 +43,39 @@ export default {
 </script>
 
 <template>
-<div class="container">
+  <div class="container">
     <header>
-        <BackButton/>
-        <div class="default-header">
-            To Do List
-        </div>
+      <BackButton />
+      <div class="default-header">To Do List</div>
     </header>
 
     <main class="todo-main">
-        <section class="todo-grid" v-for="task in currentTasks" :key="task.id">
-                <div class="info">{{ task.description }}</div>
-                <div>
-                    <input 
-                        type="checkbox" 
-                        class="info-checkbox" 
-                        v-model="task.done"/>
-                </div>
-        </section>
+      <section class="todo-grid" v-for="task in currentTasks" :key="task.id">
+        <div class="info">{{ task.description }}</div>
+        <div>
+          <input type="checkbox" class="info-checkbox" v-model="task.done" />
+        </div>
+      </section>
 
-
-    <div class="todo-button-link">
-        <button
-            class="todo-add-task-button"
-            @click="TogglePopUp('addTask')">
-                add
+      <div class="todo-button-link">
+        <button class="todo-add-task-button" @click="TogglePopUp('addTask')">
+          add
         </button>
-    </div>
+      </div>
 
-        <section class="todo-grid" v-for="task in completedTasks" :key="task.id">
-                <div class="info info-done">{{ task.description }}</div>
-                <div><input 
-                        type="checkbox" 
-                        class="info-checkbox" 
-                        v-model="task.done"/></div>
-        </section>
+      <section class="todo-grid" v-for="task in completedTasks" :key="task.id">
+        <div class="info info-done">{{ task.description }}</div>
+        <div>
+          <input type="checkbox" class="info-checkbox" v-model="task.done" />
+        </div>
+      </section>
 
-
-        <span>
-            <AddTask 
-                v-if="triggers.addTask"
-                :TogglePopUp="() => TogglePopUp('addTask')"/>
-        </span>
+      <span>
+        <AddTask v-if="triggers.addTask" :TogglePopUp="() => TogglePopUp('addTask')" />
+      </span>
     </main>
-</div>
-    <footer>
-        <FooterMenu/>
-    </footer>
+  </div>
+  <footer>
+    <FooterMenu />
+  </footer>
 </template>

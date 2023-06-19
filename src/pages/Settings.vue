@@ -2,8 +2,10 @@
 import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import PopUpWarning from '../components/pop-ups/delete-todo-warning.vue';
+
 import AddInfo from '../components/pop-ups/add-info.vue'
 import { ShowRndAddMenu } from '../components/model-controller/Add-rnd-info.js';
+
 import { triggers ,TogglePopUp} from '../pop-ups.js'
 
 export default {
