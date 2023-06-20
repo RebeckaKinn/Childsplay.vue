@@ -14,7 +14,9 @@ export const fetchTasks = async () => {
         tasks = ref(response.data.map(task => ({
             id: task.id,
             description: task.task,
-            done: task.isCompleted,
+            isCompleted: task.isCompleted,
+            date: task.date,
+            done: task.done,
         })));
         
         console.log('Fetched tasks:', tasks.value);
@@ -25,17 +27,20 @@ export const fetchTasks = async () => {
     }
   };
 //NEED REWORK
-export const UpdateList = async(newTask) => {
-    try{
-        console.log('Adding tasks...');
-        const response = await axios.post(`${url}/to-do-list`, {task: newTask});
-        console.log(response);
-    } catch (error){
-        console.log(error);
-        return;
+export const UpdateList = async (newTask) => {
+    try {
+      console.log('Adding tasks...');
+      const response = await axios.post(`${url}/to-do-list`, null, {
+        params: {
+          task: newTask
+        }
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+      return;
     }
-
-}
+  };
 
 export const deleteListData = async() => {
     try{

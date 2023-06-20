@@ -15,11 +15,11 @@ export default {
   });
 
   const completedTasks = computed(() => {
-    return tasks.value.filter(task => task.done === true); 
+    return tasks.value.filter(task => task.isCompleted === true); 
   });
 
   const currentTasks = computed(() => {
-    return tasks.value.filter(task => task.done === false); 
+    return tasks.value.filter(task => task.isCompleted === false); 
   });
 
 
@@ -53,7 +53,7 @@ export default {
       <section class="todo-grid" v-for="task in currentTasks" :key="task.id">
         <div class="info">{{ task.description }}</div>
         <div>
-          <input type="checkbox" class="info-checkbox" v-model="task.done" />
+          <input type="checkbox" class="info-checkbox" v-model="task.isCompleted" />
         </div>
       </section>
 
@@ -66,7 +66,7 @@ export default {
       <section class="todo-grid" v-for="task in completedTasks" :key="task.id">
         <div class="info info-done">{{ task.description }}</div>
         <div>
-          <input type="checkbox" class="info-checkbox" v-model="task.done" />
+          <input type="checkbox" class="info-checkbox" v-model="task.isCompleted" />
         </div>
       </section>
 
