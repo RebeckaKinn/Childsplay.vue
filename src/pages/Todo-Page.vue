@@ -4,26 +4,29 @@ import BackButton from '../components/Info/BackButton.vue';
 import { triggers ,TogglePopUp} from '../pop-ups.js';
 import AddTask from '../components/pop-ups/add-task.vue';
 import { fetchTasks, tasks, toggleIsCompleted } from '../components/model-controller/td-list.js';
-import { onMounted, computed } from 'vue';
+import { onMounted, computed, watch } from 'vue';
 
 export default {
   setup() {
-
   onMounted(async () => {
-    tasks.value = await fetchTasks(); 
+    await fetchTasks(); 
   });
 
   const completedTasks = computed(() => {
-    return tasks.value.filter(task => task.isCompleted === true); 
+    return tasks.filter(task => task.isCompleted === true); 
   });
 
   const currentTasks = computed(() => {
-    return tasks.value.filter(task => task.isCompleted === false); 
+    return tasks.filter(task => task.isCompleted === false); 
   });
 
     const toggleTask = async (task) => {
       await toggleIsCompleted(task);
     };
+    
+    watch(tasks, () => {
+
+    });
 
   return {
     triggers,
@@ -31,7 +34,6 @@ export default {
     completedTasks,
     currentTasks,
     AddTask,
-    tasks,
     toggleIsCompleted,
     toggleTask
   };

@@ -12,7 +12,6 @@ export default{
             props.TogglePopUp();
         }
         return{
-            UpdateList,
             newTask, 
             addTaskAndClosePopUp
         }
