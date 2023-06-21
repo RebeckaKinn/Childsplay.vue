@@ -2,13 +2,18 @@
 import { triggers ,TogglePopUp} from '../../pop-ups.js'
 import ChosenMenu from '../../pages/rndMenu.vue'
 import { menuToShow, dinner, activity} from '../../components/model-controller/Inner-menu.js'
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export default{
   setup(){
 
     const dinnerImage = ref(dinner.value.img);
     const activityImage = ref(activity.value.img);
+
+    watch([() => dinner.value.img, () => activity.value.img], () => {
+      dinnerImage.value = dinner.value.img;
+      activityImage.value = activity.value.img;
+    });
 
     return{
       TogglePopUp,

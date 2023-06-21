@@ -49,17 +49,14 @@ export const rndMenuInfo = (Rnd_array) => {
 
 export const changeMenuImage = (key) => {
     if (key === 'dinnerRnd') {
-        dinner.value.state = true;
-        dinner.value.img = rndMenuItems.value.img;
-        return dinner.value.img;
+      dinner.value.state = true;
+      dinner.value.img = rndMenuItems.value.img;
     }
     if (key === 'activityRnd') {
-        activity.value.state = true;
-        activity.value.img = rndMenuItems.value.img;
-        return activity.value.img;
+      activity.value.state = true;
+      activity.value.img = rndMenuItems.value.img;
     }
-    return;
-}
+  };
 
 export const menuImage = (key) => {
   let Rnd_array = key === 'dinnerRnd' ? DB_food : DB_activity
