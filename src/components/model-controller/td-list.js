@@ -18,7 +18,7 @@ export const fetchTasks = async () => {
             date: task.date,
             done: task.done,
         })));
-        
+
         console.log('Fetched tasks:', tasks.value);
         return tasks;
     } catch (error) {
@@ -26,7 +26,7 @@ export const fetchTasks = async () => {
         return [];
     }
   };
-//NEED REWORK
+
 export const UpdateList = async (newTask) => {
     try {
       console.log('Adding tasks...');
@@ -42,6 +42,29 @@ export const UpdateList = async (newTask) => {
     }
   };
 
+
+
+  export const toggleIsCompleted = async(task) => {
+      try{
+        console.log('Toggle tasks...' + task.isCompleted);
+        //task.isCompleted = !task.isCompleted;
+        console.log(task)
+        const response = await axios.put(`${url}/to-do-list`, JSON.stringify(task), {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          console.log(response);
+          return response;
+        } catch (error){
+            console.log(error);
+            return;
+        }
+    };
+    //klarer ikke å oppdatere bool
+    
+
+
 export const deleteListData = async() => {
     try{
         console.log('Deleting tasks...');
@@ -52,5 +75,3 @@ export const deleteListData = async() => {
         return;
     }
 }
-
-//the update bool value needs to be added. 

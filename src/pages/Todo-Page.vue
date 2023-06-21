@@ -3,14 +3,13 @@ import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import { triggers ,TogglePopUp} from '../pop-ups.js';
 import AddTask from '../components/pop-ups/add-task.vue';
-import { fetchTasks, tasks } from '../components/model-controller/td-list.js';
+import { fetchTasks, tasks, toggleIsCompleted } from '../components/model-controller/td-list.js';
 import { onMounted, computed } from 'vue';
 
 export default {
   setup() {
 
   onMounted(async () => {
-    console.log('Fetching tasks in VUE file...');
     tasks.value = await fetchTasks(); 
   });
 
@@ -22,6 +21,9 @@ export default {
     return tasks.value.filter(task => task.isCompleted === false); 
   });
 
+    const toggleTask = async (task) => {
+      await toggleIsCompleted(task);
+    };
 
   return {
     triggers,
@@ -29,7 +31,9 @@ export default {
     completedTasks,
     currentTasks,
     AddTask,
-    tasks
+    tasks,
+    toggleIsCompleted,
+    toggleTask
   };
 },
 
@@ -53,7 +57,11 @@ export default {
       <section class="todo-grid" v-for="task in currentTasks" :key="task.id">
         <div class="info">{{ task.description }}</div>
         <div>
-          <input type="checkbox" class="info-checkbox" v-model="task.isCompleted" />
+          <input 
+            type="checkbox" 
+            class="info-checkbox" 
+
+            @change="toggleTask(task)" />
         </div>
       </section>
 
@@ -66,7 +74,11 @@ export default {
       <section class="todo-grid" v-for="task in completedTasks" :key="task.id">
         <div class="info info-done">{{ task.description }}</div>
         <div>
-          <input type="checkbox" class="info-checkbox" v-model="task.isCompleted" />
+          <input 
+            type="checkbox" 
+            class="info-checkbox" 
+
+            @change="toggleTask(task)"/>
         </div>
       </section>
 
