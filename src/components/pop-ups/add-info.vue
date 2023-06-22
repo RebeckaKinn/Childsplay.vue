@@ -87,15 +87,22 @@ autoResizeTextArea(event) {
             </div>
 
             <div>
-                <img v-if="uploadedImage" :src="uploadedImage" alt="Uploaded Image" class="menu-image uploaded-image"/>
+                <img v-if="uploadedImage" 
+                  :src="uploadedImage" 
+                  alt="Uploaded Image" 
+                  class="menu-image uploaded-image"/>
             </div>
 
             <input type="file" ref="fileInput" @change="handleImageUpload" style="display: none" />     
-            <button @click="openFileInput" class="upload-button">Upload Image</button>
+            <button 
+                @click="openFileInput" 
+                class="upload-button">
+                  Upload Image
+            </button>
 
             <button 
               class="add" 
-              @click="AddNewInfo(this.inputInfo.title, this.inputInfo.description, this.uploadedImage), TogglePopUp()">
+              @click="AddNewInfo(), TogglePopUp()">
                 Add
               </button>
         </div>

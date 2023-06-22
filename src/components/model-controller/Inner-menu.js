@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { ref, reactive } from 'vue';
 
-import TestImg from '../../img/mustache_cat.jpg';
-
-const url = 'http://localhost:5121';
+export const url = 'http://localhost:5121';
 
 export const DB_food = reactive([]);
 
@@ -32,7 +30,6 @@ export const menuToShow = (key) => {
     rndMenuInfo(key === 'dinnerRnd' ? DB_food : DB_activity);
 }
 
-//////////////////////////////
 
 export const fetchData = async () => {
     await Promise.all([fetchDinner(), fetchActivity()]);
@@ -87,7 +84,6 @@ export const fetchDinner = async () => {
         return [];
     }
   };
-//////////////////////////////
 
 
 

@@ -28,8 +28,6 @@ export default{
 </script>
 
 <template>
-
-
     <div class="default-pop-up">
         <div class="default-pop-up-inner">
                 <BackButton/>

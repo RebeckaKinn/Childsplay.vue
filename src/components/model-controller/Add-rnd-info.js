@@ -1,7 +1,8 @@
 import Default_Image from '../../img/mustache_cat.jpg';
-import { DB_activity, DB_food } from '../../components/model-controller/Inner-menu.js';
+import axios from 'axios';
+import { url } from '../../components/model-controller/Inner-menu.js';
 
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export let inputInfo = ref({
     title: '',
@@ -9,35 +10,44 @@ export let inputInfo = ref({
     img: Default_Image,
 });
 
-export let newInfoMenu = {
+export let newInfoMenu = ref({
     title: '',
     currentPage: ''
-};
+});
 
 export const ShowRndAddMenu = (key) => {
-    newInfoMenu.title = key === 'dinnerRnd' ? 'Add dinner' : 'Add activity';
-    newInfoMenu.currentPage = key;
+    newInfoMenu.value.title = key === 'dinnerRnd' ? 'Add dinner' : 'Add activity';
+    newInfoMenu.value.currentPage = key;
 }
 
-export const AddNewInfo = (newTitle, newDescription, newImg) => {
-    console.log('runnung...')
-    inputInfo.value.title = newTitle;
-    inputInfo.value.description = newDescription;
-    inputInfo.value.img = newImg;
+export const AddNewInfo = async () => {
+    try{
+        console.log()
 
-    console.log(newInfoMenu.currentPage)
+            const name = inputInfo.value.title;
+            const description = inputInfo.value.description;
+            const img = inputInfo.value.img;
+            const page = newInfoMenu.value.currentPage;
 
-    let DB = newInfoMenu.currentPage === 'dinnerRnd' ? DB_food : DB_activity;
+        console.log(inputInfo.value.title)
+        console.log('Adding new item to database...');
+        const response = await axios.post(`${url}/settings/menu-items`, null, {
+            params: {
+                name: name,
+                description: description,
+                img: img,
+                page: page
+            }
+        });
+        console.log(response.data);
 
-    DB.push({
-        title: newTitle,
-        img: newImg,
-        description: newDescription
-    },)
-
-    console.log(DB)
-    EmptyValues();
-    console.log("DONE")
+        console.log("DONE")
+        EmptyValues();
+    } catch (error){
+        console.log(error);
+        EmptyValues();
+        return;
+    }
 }
 
 const EmptyValues = () => {
@@ -45,6 +55,6 @@ const EmptyValues = () => {
     inputInfo.value.description = '';
     inputInfo.value.img = Default_Image;
 
-    newInfoMenu.title = '';
-    newInfoMenu.currentPage = '';
+    newInfoMenu.value.title = '';
+    newInfoMenu.value.currentPage = '';
 }
