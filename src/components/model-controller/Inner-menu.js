@@ -1,22 +1,19 @@
+import axios from 'axios';
+import { ref, reactive } from 'vue';
 
-import Pasta from '../../img/pasta.jpg'
-import Burger from '../../img/burger.jpg'
-import Taco from '../../img/tacos.jpg'
-import Pannekaker from '../../img/pannekaker.jpg'
-import Kjøttboller from '../../img/kjøttboller.jpg'
+import TestImg from '../../img/mustache_cat.jpg';
 
-import Lekeplass from '../../img/lekeplass.jpg'
-import Hus from '../../img/hus.jpg'
-import Shopping from '../../img/shopping.jpg'
-import Stranda from '../../img/stranda.jpg'
-import Skog from '../../img/bøkeskogen.jpg'
+const url = 'http://localhost:5121';
 
-import { ref } from 'vue';
+export const DB_food = reactive([]);
+
+export const DB_activity = reactive([]);
 
 export let rndMenuItems = ref({
-    title: '',
+    name: '',
     description: '',
     img: null,
+    id: null,
 });
 
 export const activity = ref(
@@ -35,6 +32,65 @@ export const menuToShow = (key) => {
     rndMenuInfo(key === 'dinnerRnd' ? DB_food : DB_activity);
 }
 
+//////////////////////////////
+
+export const fetchData = async () => {
+    await Promise.all([fetchDinner(), fetchActivity()]);
+}
+
+export const fetchActivity = async () => {
+    try {
+        console.log('Fetching activity...');
+        const response = await axios.get(`${url}/inner-menu/activity`);
+        console.log(response);
+
+        DB_activity.length = 0;
+
+        response.data.forEach(item => {
+            DB_activity.push({
+                name: item.name,
+                description: item.description,
+                img: item.img,
+                id: item.id,
+            });
+        });
+
+        console.log('Activity-list: ', DB_activity);
+        return DB_activity;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+  };
+
+export const fetchDinner = async () => {
+    try {
+        console.log('Fetching dinner...');
+        const response = await axios.get(`${url}/inner-menu/dinner`);
+        console.log(response);
+
+        DB_food.length = 0;
+
+        response.data.forEach(item => {
+            DB_food.push({
+                name: item.name,
+                description: item.description,
+                img: item.img,
+                id: item.id,
+            });
+        });
+
+        console.log('Dinner-list: ', DB_food);
+        return DB_food;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+  };
+//////////////////////////////
+
+
+
 export const rndMenuInfo = (Rnd_array) => {
     let rndIndex = Math.floor(Math.random() * Rnd_array.length);
     if(lastIndex === rndIndex) {
@@ -42,9 +98,10 @@ export const rndMenuInfo = (Rnd_array) => {
     }
     lastIndex = rndIndex;
 
-    rndMenuItems.value.title = Rnd_array[rndIndex].title;
+    rndMenuItems.value.name = Rnd_array[rndIndex].name;
     rndMenuItems.value.description = Rnd_array[rndIndex].description;
     rndMenuItems.value.img = Rnd_array[rndIndex].img;
+    rndMenuItems.value.id = Rnd_array[rndIndex].id;
 }
 
 export const changeMenuImage = (key) => {
@@ -71,21 +128,3 @@ export const menuImage = (key) => {
     return activity.value.img;
   }
 }
-
-//dummy database::
-
-export const DB_food = [
-    {title: 'Taco', img: Taco, description: 'Steke tacokjøtt med mild krydder, og ikke fordele kjøttdeigen for mye slik at det er lettere for barna å spise.'},
-    {title: 'Fiskekaker og pasta', img: Pasta, description: 'Steke i terninger med kokte grønnsaker og pasta.'},
-    {title: 'Burger', img: Burger, description: 'Steke i paninigjernet med ost og krydder, samt ristet burgerbrød.'},
-    {title: 'Pannekaker', img: Pannekaker, description: 'La barna bli med å røre røren, og stek dem tynne. Smør på med pålegg hvis de ønsker det.'},
-    {title: 'Kjøttboller med saus', img: Kjøttboller, description: 'Stek bollene, kok grønnsaker og lag sausen separat og tilby hvis de ønsker.'},
-];
-
-export const DB_activity = [
-    {title: 'Lokale lekeplassen', img: Lekeplass, description: 'La vognen være hjemme, ta med bøtte og spade og la de grave og huske.'},
-    {title: 'Stranda', img: Stranda, description: 'Sykle eller gå, ta med lite telt og graveleker, samt noe å spise og bruk mesteparten av dagen ute.'},
-    {title: 'Tur i bøkeskogen', img: Skog, description: 'Gå igjennom skogen og end opp ved lekeplassen. Kjøp is hvis været er fint. Husk graveleker!'},
-    {title: 'Besøke besteforeldrene', img: Hus, description: 'Avtal besøk og gå tur i nærområdet eller lek i hagen.'},
-    {title: 'Shopping', img: Shopping, description: 'Kontakt noen å ta med på senteret og la barna gå rundt og leke. Spis på kafè, men ta med noe ekstra de kan gomle på.'},
-];

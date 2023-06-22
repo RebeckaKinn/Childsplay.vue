@@ -4,18 +4,24 @@ import InnerMenu from '../components/menuItems/Inner-menu.vue'
 import FooterMenu from '../components/menuItems/Footer-menu.vue'
 import BottomMessage from '../components/Info/AllRightsReserved.vue'
 import Header from '../components/Info/Header-frontPage.vue'
+import { onMounted } from 'vue';
 
-import {menuImage, dinner, activity} from '../components/model-controller/Inner-menu.js'
+import {menuImage, dinner, activity, fetchData} from '../components/model-controller/Inner-menu.js'
 export default{
   setup(){
 
-    menuImage('dinnerRnd');
-    menuImage('activityRnd');
+   onMounted(async () => {
+     await fetchData(); 
+     menuImage('dinnerRnd');
+     menuImage('activityRnd');
+   });
+
 
     return{
       menuImage, 
       dinner,
       activity,
+      fetchData
     }
   },
 

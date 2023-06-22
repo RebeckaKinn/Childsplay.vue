@@ -1,7 +1,7 @@
 <script>
 import { triggers ,TogglePopUp} from '../../pop-ups.js'
 import ChosenMenu from '../../pages/rndMenu.vue'
-import { menuToShow, dinner, activity} from '../../components/model-controller/Inner-menu.js'
+import { menuToShow, dinner, activity } from '../../components/model-controller/Inner-menu.js'
 import { ref, watch } from 'vue';
 
 export default{
@@ -22,7 +22,7 @@ export default{
       dinnerImage,
       activityImage,
       dinner, 
-      activity
+      activity,
     }
   },
 
