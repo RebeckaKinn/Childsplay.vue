@@ -100,6 +100,8 @@ export const rndMenuInfo = (Rnd_array) => {
     rndMenuItems.value.id = Rnd_array[rndIndex].id;
 }
 
+//klarer ikke få ut info på name / title. A VUE problem, not backend. 
+
 export const changeMenuImage = (key) => {
     if (key === 'dinnerRnd') {
       dinner.value.state = true;
