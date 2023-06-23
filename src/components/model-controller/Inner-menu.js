@@ -94,10 +94,14 @@ export const rndMenuInfo = (Rnd_array) => {
     }
     lastIndex = rndIndex;
 
+    console.log('RndArray navn: ' + Rnd_array[rndIndex].name);
+
     rndMenuItems.value.name = Rnd_array[rndIndex].name;
     rndMenuItems.value.description = Rnd_array[rndIndex].description;
     rndMenuItems.value.img = Rnd_array[rndIndex].img;
     rndMenuItems.value.id = Rnd_array[rndIndex].id;
+
+    console.log('rndMenuItems navn: ' + rndMenuItems.value.name)
 }
 
 //klarer ikke få ut info på name / title. A VUE problem, not backend. 

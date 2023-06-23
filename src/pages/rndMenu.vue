@@ -43,7 +43,7 @@ export default{
                 Tip of the day is...
             </div>
 
-            <p class="chooser-title">{{ rndMenuItems.title }}</p>
+            <p class="chooser-title">{{ rndMenuItems.name }}</p>
             <p class="chooser-description">{{ rndMenuItems.description }}</p>
             
             <div>
