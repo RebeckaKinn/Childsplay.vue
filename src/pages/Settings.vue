@@ -2,6 +2,7 @@
 import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import PopUpWarning from '../components/pop-ups/delete-todo-warning.vue';
+import ViewInfo from '../components/pop-ups/view-info.vue';
 
 import AddInfo from '../components/pop-ups/add-info.vue'
 import { ShowRndAddMenu } from '../components/model-controller/Add-rnd-info.js';
@@ -21,7 +22,8 @@ export default {
     FooterMenu,
     BackButton,
     PopUpWarning,
-    AddInfo
+    AddInfo,
+    ViewInfo
   }
   
 }
@@ -44,7 +46,7 @@ export default {
 
         <button 
           class="setting-button"
-          @click="null">
+          @click="TogglePopUp('editMenu')">
             Edit dinner
         </button>
         <br/>
@@ -57,7 +59,7 @@ export default {
 
         <button 
           class="setting-button"
-          @click="null">
+          @click="TogglePopUp('editMenu')">
             Edit activity
         </button>
         <br/>
@@ -77,6 +79,10 @@ export default {
         <AddInfo
           v-if="triggers.addInfo"
           :TogglePopUp="() => TogglePopUp('addInfo')"/>
+
+        <ViewInfo
+          v-if="triggers.editMenu"
+          :TogglePopUp="() => TogglePopUp('editMenu')"/>
       </span>
       
     </main>
