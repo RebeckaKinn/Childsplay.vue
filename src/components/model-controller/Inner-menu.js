@@ -7,6 +7,8 @@ export const DB_food = reactive([]);
 
 export const DB_activity = reactive([]);
 
+export let currentList = reactive([]);
+
 export let rndMenuItems = ref({
     name: '',
     description: '',
@@ -24,6 +26,11 @@ export const dinner = ref(
 export let currentView = '';
 let lastIndex = '';
 
+export const changeView = (key) => {
+    currentView = key;
+    currentList = key === 'dinnerRnd' ? DB_food : DB_activity;
+    console.log(currentList);
+}
 
 export const menuToShow = (key) => {
     currentView = key;
@@ -34,6 +41,7 @@ export const menuToShow = (key) => {
 export const fetchData = async () => {
     await Promise.all([fetchDinner(), fetchActivity()]);
 }
+
 
 export const fetchActivity = async () => {
     try {

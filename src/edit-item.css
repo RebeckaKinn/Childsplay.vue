@@ -1,0 +1,58 @@
+.list-item-grid{
+    display: grid;
+
+    font-size: 18px;
+    border-top: 1px solid #ccc;
+    grid-template-columns: 100px 200px auto;
+    grid-template-rows: 50px;
+    grid-template-areas:
+        'name description img'
+        'button description img';
+}
+
+.viewInfo-name{
+    grid-area: name;
+    border-right: 1px solid #ccc;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.viewInfo-description{
+    grid-area: description;
+    font-size: 12px;
+    padding: 5px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    max-height: 100px; 
+    text-overflow: ellipsis;
+}
+
+
+.viewInfo-img{
+    grid-area: img;
+}
+
+.viewInfo-button{
+    grid-area: button;
+    font-size: 15px;
+    text-align: left;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+    align-self: center;
+}
+
+
+.viewInfo-image{
+    height: 95px; 
+    width: 95px;
+    object-fit: cover;
+}
+
+.viewEdit-header{
+    padding-bottom: 50px;
+}

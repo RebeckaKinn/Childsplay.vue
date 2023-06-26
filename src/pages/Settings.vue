@@ -2,10 +2,10 @@
 import FooterMenu from '../components/menuItems/Footer-menu.vue';
 import BackButton from '../components/Info/BackButton.vue';
 import PopUpWarning from '../components/pop-ups/delete-todo-warning.vue';
-import ViewInfo from '../components/pop-ups/view-info.vue';
 
 import AddInfo from '../components/pop-ups/add-info.vue'
 import { ShowRndAddMenu } from '../components/model-controller/Add-rnd-info.js';
+import { changeView } from '../components/model-controller/Inner-menu.js';
 
 import { triggers ,TogglePopUp} from '../pop-ups.js'
 
@@ -14,7 +14,8 @@ export default {
     return {
       triggers,
       TogglePopUp,
-      ShowRndAddMenu
+      ShowRndAddMenu,
+      changeView
     }
   },
 
@@ -23,7 +24,6 @@ export default {
     BackButton,
     PopUpWarning,
     AddInfo,
-    ViewInfo
   }
   
 }
@@ -44,12 +44,15 @@ export default {
             Add dinner item
         </button>
 
-        <button 
-          class="setting-button"
-          @click="TogglePopUp('editMenu')">
+        <router-link 
+          to="/edit"
+          @click="changeView('dinnerRnd')"
+          class="setting-button-default setting-button">
             Edit dinner
-        </button>
+        </router-link>
         <br/>
+
+
 
          <button 
           class="setting-button"
@@ -57,12 +60,14 @@ export default {
             Add activity
         </button>
 
-        <button 
-          class="setting-button"
-          @click="TogglePopUp('editMenu')">
+        <router-link 
+          to="/edit"
+          @click="changeView('activityRnd')"
+          class="setting-button-default setting-button">
             Edit activity
-        </button>
+        </router-link>
         <br/>
+
         
         <button 
           class="setting-button" 
@@ -79,10 +84,6 @@ export default {
         <AddInfo
           v-if="triggers.addInfo"
           :TogglePopUp="() => TogglePopUp('addInfo')"/>
-
-        <ViewInfo
-          v-if="triggers.editMenu"
-          :TogglePopUp="() => TogglePopUp('editMenu')"/>
       </span>
       
     </main>
@@ -124,5 +125,21 @@ main {
 }
 .setting-button:hover{
     color: #45d0e2;
+}
+
+.setting-button-default{
+  color: #333;
+    font-size: 20px;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    font-family: Century Gothic;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #45d0e2;
+    text-decoration: none;
 }
 </style>
