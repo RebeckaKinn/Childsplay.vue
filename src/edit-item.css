@@ -1,10 +1,10 @@
 .list-item-grid{
     display: grid;
 
-    font-size: 18px;
+    font-size: 20px;
     border-top: 1px solid #ccc;
     grid-template-columns: 100px 200px auto;
-    grid-template-rows: 50px;
+    grid-template-rows: 30px 70px;
     grid-template-areas:
         'name description img'
         'button description img';
@@ -21,7 +21,7 @@
 
 .viewInfo-description{
     grid-area: description;
-    font-size: 12px;
+    font-size: 15px;
     padding: 5px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -38,11 +38,12 @@
 
 .viewInfo-button{
     grid-area: button;
-    font-size: 15px;
+    font-size: 20px;
     text-align: left;
     padding: 5px;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100px;
+    border: none;
     align-self: center;
 }
 
@@ -55,4 +56,8 @@
 
 .viewEdit-header{
     padding-bottom: 50px;
+}
+
+.edit-view-container-edit{
+    margin-bottom: 60px;
 }

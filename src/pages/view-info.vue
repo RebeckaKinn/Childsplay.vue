@@ -3,6 +3,8 @@ import { currentList, fetchData } from '../components/model-controller/Inner-men
 import { watch, ref, onMounted } from 'vue';
 import BackButton from '../components/Info/BackButton.vue';
 import FooterMenu from '../components/menuItems/Footer-menu.vue';
+import EditMode from '../components/pop-ups/edit-mode.vue';
+import { triggers ,TogglePopUp} from '../pop-ups.js'
 
 export default {
     setup() {
@@ -18,20 +20,23 @@ export default {
     });
         
         return{
-            itemList
+            itemList,
+            triggers,
+            TogglePopUp
         }
     },
 
     components:{
         BackButton,
-        FooterMenu
+        FooterMenu,
+        EditMode
     }
 }
 //create a pop-up for edit
 </script>
 
 <template>
-    <div class="container">
+    <div class="container edit-view-container-edit">
         <header>
             <BackButton />
             <div class="viewEdit-header"></div>
@@ -59,13 +64,18 @@ export default {
                     </div>
 
                 <button
-                    class="viewInfo-button">
-                    Edit
+                    class="viewInfo-button"
+                    @click="TogglePopUp('editMode')">
+                    edit
                 </button>
 
             </section>
 
-            <span></span>
+            <span>
+                <EditMode 
+                    v-if="triggers.editMode"
+                    :TogglePopUp="() => TogglePopUp('editMode')"/>
+            </span>
         </main>
     </div>
     <footer>

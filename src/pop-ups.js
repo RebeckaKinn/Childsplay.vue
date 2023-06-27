@@ -7,6 +7,7 @@ import { ref } from 'vue';
       addInfo: false,
       rndMenu: false,
       editMenu: false,
+      editMode: false,
     });
 
     export const TogglePopUp = (key) => {
