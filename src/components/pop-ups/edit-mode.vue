@@ -93,7 +93,7 @@ autoResizeTextArea(event) {
 
             <button 
               class="add" 
-              @click="editItems(item), TogglePopUp()">
+              @click="editItems(edit), TogglePopUp()">
                 Save
               </button>
 

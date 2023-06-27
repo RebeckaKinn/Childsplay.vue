@@ -22,8 +22,6 @@ export const ShowRndAddMenu = (key) => {
 
 export const AddNewInfo = async () => {
     try{
-        console.log()
-
             const name = inputInfo.value.title;
             const description = inputInfo.value.description;
             const img = inputInfo.value.img;

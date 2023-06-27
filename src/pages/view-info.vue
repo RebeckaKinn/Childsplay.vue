@@ -69,7 +69,7 @@ export default {
 
                 <button
                     class="viewInfo-button"
-                    @click="getItems(item.name, item.description, item.img), TogglePopUp('editMode')">
+                    @click="getItems(item.name, item.description, item.img, item.id), TogglePopUp('editMode')">
                     edit
                 </button>
 
