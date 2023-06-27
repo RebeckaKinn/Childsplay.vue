@@ -3,6 +3,8 @@ import { currentList, fetchData } from '../components/model-controller/Inner-men
 import { watch, ref, onMounted } from 'vue';
 import BackButton from '../components/Info/BackButton.vue';
 import FooterMenu from '../components/menuItems/Footer-menu.vue';
+
+import { getItems } from '../components/model-controller/View-info.js';
 import EditMode from '../components/pop-ups/edit-mode.vue';
 import { triggers ,TogglePopUp} from '../pop-ups.js'
 
@@ -18,11 +20,13 @@ export default {
        watch(currentList, () => {
         console.log(currentList);
     });
+    
         
         return{
             itemList,
             triggers,
-            TogglePopUp
+            TogglePopUp,
+            getItems
         }
     },
 
@@ -65,7 +69,7 @@ export default {
 
                 <button
                     class="viewInfo-button"
-                    @click="TogglePopUp('editMode')">
+                    @click="getItems(item.name, item.description, item.img), TogglePopUp('editMode')">
                     edit
                 </button>
 
