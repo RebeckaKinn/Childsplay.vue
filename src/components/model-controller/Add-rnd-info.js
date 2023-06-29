@@ -27,16 +27,17 @@ export const AddNewInfo = async () => {
             const img = inputInfo.value.img;
             const page = newInfoMenu.value.currentPage;
 
-        console.log(inputInfo.value.title)
+        console.log('inputInfo.img : ' + inputInfo.value.img)
         console.log('Adding new item to database...');
-        const response = await axios.post(`${url}/settings/menu-items`, null, {
+        const response = await axios.post(`${url}/settings/menu-items`, null,{
             params: {
                 name: name,
                 description: description,
                 img: img,
                 page: page
+
             }
-        });
+          });
         console.log(response.data);
 
         console.log("DONE")

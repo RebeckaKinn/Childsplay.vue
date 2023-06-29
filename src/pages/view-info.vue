@@ -36,16 +36,17 @@ export default {
         EditMode
     }
 }
-//create a pop-up for edit
+
 </script>
 
 <template>
-    <div class="container edit-view-container-edit">
+    <div class="container">
         <header>
             <BackButton />
             <div class="viewEdit-header"></div>
         </header>
 
+    <div class="space-grid">
         <main class="todo-main">
             <section
                 class="list-item-grid"
@@ -81,6 +82,7 @@ export default {
                     :TogglePopUp="() => TogglePopUp('editMode')"/>
             </span>
         </main>
+    </div>
     </div>
     <footer>
         <FooterMenu />

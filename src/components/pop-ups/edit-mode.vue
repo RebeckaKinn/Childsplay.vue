@@ -13,15 +13,15 @@ export default{
     props: ['TogglePopUp'],
 
 
-    data() {
-    return {
-      uploadedImage: this.edit.img,
-    };
-  },
+//     data() {
+//     return {
+//       uploadedImage: edit.value.img,
+//     };
+//   },
   methods: {
 
 
-    openFileInput() {
+       openFileInput() {
       this.$refs.fileInput.click();
     },
     handleImageUpload(event) {
@@ -29,7 +29,7 @@ export default{
       if (file) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          this.uploadedImage = e.target.result;
+          this.edit.img = e.target.result;
         };
         reader.readAsDataURL(file);
       }
@@ -78,8 +78,8 @@ autoResizeTextArea(event) {
             </div>
 
             <div>
-                <img v-if="uploadedImage" 
-                  :src="uploadedImage" 
+                <img v-if="edit.img" 
+                  :src="edit.img" 
                   alt="Uploaded Image" 
                   class="menu-image uploaded-image"/>
             </div>
@@ -93,7 +93,7 @@ autoResizeTextArea(event) {
 
             <button 
               class="add" 
-              @click="editItems(edit), TogglePopUp()">
+              @click="editItems(), TogglePopUp()">
                 Save
               </button>
 

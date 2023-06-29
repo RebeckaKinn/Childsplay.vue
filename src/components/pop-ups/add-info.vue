@@ -15,11 +15,9 @@ export default {
   data() {
     return {
       uploadedImage: inputInfo.value.img,
-    };
+     };
   },
   methods: {
-
-
     openFileInput() {
       this.$refs.fileInput.click();
     },
@@ -29,6 +27,7 @@ export default {
         const reader = new FileReader();
         reader.onload = (e) => {
           this.uploadedImage = e.target.result;
+          inputInfo.value.img = e.target.result;
         };
         reader.readAsDataURL(file);
       }
