@@ -1,5 +1,5 @@
 <script>
-import { edit, editItems} from '../../components/model-controller/View-info.js';
+import { edit, editItems, deleteItem} from '../../components/model-controller/View-info.js';
 import { ref, reactive } from 'vue';
 
 export default{
@@ -7,6 +7,7 @@ export default{
         return{
             editItems,
             edit,
+            deleteItem
         }
     },
 
@@ -96,6 +97,12 @@ autoResizeTextArea(event) {
               @click="editItems(), TogglePopUp()">
                 Save
               </button>
+
+            <button
+                class="add"
+                @click="deleteItem(edit.id); TogglePopUp()">
+                Delete
+            </button>
 
         </div>
     </div>

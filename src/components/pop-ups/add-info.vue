@@ -33,6 +33,8 @@ export default {
       }
     },
 
+//Lagre bildene i api og send path ti lmappa til sql. da kan du beholde string og den forbanna lange urlen
+
 
 autoResizeTextArea(event) {
   const textarea = event.target;
